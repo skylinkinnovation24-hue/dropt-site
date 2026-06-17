@@ -52,6 +52,43 @@
     onScroll();
   }
 
+  /* ---- 2b. Mobile nav (hamburger) ------------------------- */
+  /* Builds the toggle in JS so all pages share one nav markup.
+     CSS reveals it and the slide-down menu below ~860px. */
+  function initMobileNav() {
+    var nav = document.querySelector('[data-nav]');
+    if (!nav) return;
+    var inner = nav.querySelector('.nav-inner');
+    var links = nav.querySelector('.nav-links');
+    if (!inner || !links) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'nav-toggle';
+    btn.setAttribute('aria-label', 'Toggle menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    inner.appendChild(btn);
+
+    function setOpen(open) {
+      nav.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function () {
+      setOpen(!nav.classList.contains('is-open'));
+    });
+    /* close after tapping a link */
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+    /* close if resized back to desktop, or on Escape */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 860) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  }
+
   /* ---- 3. Parallax orbs ----------------------------------- */
   function initParallax() {
     var els = [].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -143,6 +180,7 @@
   function boot() {
     initGlow();
     initNav();
+    initMobileNav();
     initParallax();
     observeReveal(document);
   }
