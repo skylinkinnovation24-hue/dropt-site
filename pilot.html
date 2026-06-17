@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply for the Pilot — Dropt</title>
+<meta name="description" content="Apply for the Bangalore pilot. Tell us about your brand and we'll reach out within 24 hours to scope your 60-day path to first delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="glow glow--soft" data-glow></div>
+
+  <nav class="nav" data-nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="dot"></span>DROPT</a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="for-brands.html">For Brands</a>
+        <a href="about.html">About</a>
+      </div>
+      <a href="pilot.html" class="btn btn-nav">Start Pilot <span class="arr">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <section class="hero" style="padding:170px 32px 110px">
+    <div class="hero-orb" data-parallax="0.22" style="top:-240px;right:-160px;width:760px;height:760px;background:radial-gradient(circle,rgba(255,77,45,0.18) 0%,rgba(255,77,45,0.04) 42%,rgba(255,77,45,0) 70%)"></div>
+    <div class="pilot-grid">
+
+      <!-- LEFT -->
+      <div class="pilot-left reveal" data-reveal="0">
+        <div class="hero-eyebrow" style="margin-bottom:26px">Bangalore Pilot</div>
+        <h1>Apply for the pilot.</h1>
+        <p>Tell us about your brand. If it&rsquo;s a fit, we&rsquo;ll reach out within 24 hours to scope your 60-day path to first delivery.</p>
+        <div class="assurances">
+          <div class="assurance"><span class="ak">&#10003;</span><span>Zero capex — we plug into your existing stores and OMS.</span></div>
+          <div class="assurance"><span class="ak">&#10003;</span><span>60-day path from kickoff to your first live delivery.</span></div>
+          <div class="assurance"><span class="ak">&#10003;</span><span>You keep the customer, the data and the experience.</span></div>
+        </div>
+        <div class="pilot-mail">Or email us directly — pilot@dropt.in</div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-panel reveal" data-reveal="80">
+        <form id="pilotForm" novalidate>
+          <div class="form-row">
+            <div>
+              <label class="field-label" for="brand">Brand name <span class="accent">*</span></label>
+              <input class="field" type="text" name="brand" id="brand" placeholder="e.g. Aira">
+              <div class="field-error" data-error-for="brand" hidden>Required</div>
+            </div>
+            <div>
+              <label class="field-label" for="role">Your role <span class="accent">*</span></label>
+              <select class="field" name="role" id="role">
+                <option value="">Select…</option>
+                <option>Founder</option><option>CTO</option><option>Head of Ecommerce</option><option>Operations</option>
+              </select>
+              <div class="field-error" data-error-for="role" hidden>Required</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label" for="website">Website URL</label>
+              <input class="field" type="text" name="website" id="website" placeholder="https://">
+            </div>
+            <div>
+              <label class="field-label" for="orders">Monthly online orders</label>
+              <select class="field" name="orders" id="orders">
+                <option value="">Select…</option>
+                <option>&lt; 500</option><option>500 – 2K</option><option>2K – 10K</option><option>10K+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label" for="stores">Stores in Bangalore</label>
+              <input class="field" type="text" name="stores" id="stores" placeholder="e.g. 6">
+            </div>
+            <div>
+              <label class="field-label" for="setup">Current delivery setup</label>
+              <select class="field" name="setup" id="setup">
+                <option value="">Select…</option>
+                <option>Own logistics</option><option>3PL</option><option>Marketplace only</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:18px">
+            <label class="field-label">On Shopify?</label>
+            <div class="seg-toggle" id="shopifyToggle">
+              <button type="button" class="seg-btn" data-val="Yes">Yes</button>
+              <button type="button" class="seg-btn" data-val="No">No</button>
+              <button type="button" class="seg-btn" data-val="Other">Other</button>
+            </div>
+          </div>
+
+          <div style="margin-bottom:18px">
+            <label class="field-label" for="pain">Your biggest delivery pain point</label>
+            <textarea class="field" name="pain" id="pain" rows="3" placeholder="Tell us what's slow, costly, or broken today…"></textarea>
+          </div>
+
+          <div class="form-row" style="margin-bottom:28px">
+            <div>
+              <label class="field-label" for="email">Email <span class="accent">*</span></label>
+              <input class="field" type="email" name="email" id="email" placeholder="you@brand.com">
+              <div class="field-error" data-error-for="email" hidden>Required</div>
+            </div>
+            <div>
+              <label class="field-label" for="phone">Phone</label>
+              <input class="field" type="text" name="phone" id="phone" placeholder="+91">
+            </div>
+          </div>
+
+          <button type="submit" class="form-submit">Submit application &rarr;</button>
+          <div class="form-fine">We reply within 24 hours. No spam, ever.</div>
+        </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <div class="success-check">&#10003;</div>
+          <h2>Application received.</h2>
+          <p>Thanks, <span id="successName"></span>. We&rsquo;ll reach out within 24 hours to discuss your pilot.</p>
+          <div class="conf">Confirmation sent to <span id="successEmail"></span></div>
+          <button class="again" id="resetForm">Submit another &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" data-footer></footer>
+</div>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+/* Pilot application form — client-side validation + success state.
+   (Wire the submit handler to your backend / CRM when going live.) */
+(function () {
+  var form = document.getElementById('pilotForm');
+  var success = document.getElementById('formSuccess');
+  var shopify = '';
+
+  /* Shopify segmented toggle */
+  var segBtns = [].slice.call(document.querySelectorAll('#shopifyToggle .seg-btn'));
+  segBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      shopify = b.getAttribute('data-val');
+      segBtns.forEach(function (x) { x.classList.toggle('is-sel', x === b); });
+    });
+  });
+
+  function showError(name, on, msg) {
+    var field = document.getElementById(name);
+    var err = document.querySelector('[data-error-for="' + name + '"]');
+    field.classList.toggle('is-error', on);
+    if (err) {
+      err.hidden = !on;
+      if (msg) err.textContent = msg;
+    }
+  }
+  /* clear an error as the user fixes the field */
+  ['brand', 'role', 'email'].forEach(function (name) {
+    var el = document.getElementById(name);
+    el.addEventListener('input', function () { showError(name, false); });
+    el.addEventListener('change', function () { showError(name, false); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var brand = document.getElementById('brand').value.trim();
+    var role = document.getElementById('role').value;
+    var email = document.getElementById('email').value.trim();
+    var emailOk = /.+@.+\..+/.test(email);
+
+    /* clear prior errors, then re-flag whatever is still invalid */
+    ['brand', 'role', 'email'].forEach(function (n) { showError(n, false); });
+
+    var ok = true;
+    if (!brand) { showError('brand', true, 'Required'); ok = false; }
+    if (!role) { showError('role', true, 'Required'); ok = false; }
+    if (!emailOk) { showError('email', true, email ? 'Enter a valid email' : 'Required'); ok = false; }
+    if (!ok) return;
+
+    /* success */
+    document.getElementById('successName').textContent = brand;
+    document.getElementById('successEmail').textContent = email;
+    form.hidden = true;
+    success.hidden = false;
+  });
+
+  document.getElementById('resetForm').addEventListener('click', function () {
+    form.reset();
+    shopify = '';
+    segBtns.forEach(function (x) { x.classList.remove('is-sel'); });
+    ['brand', 'role', 'email'].forEach(function (n) { showError(n, false); });
+    success.hidden = true;
+    form.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>

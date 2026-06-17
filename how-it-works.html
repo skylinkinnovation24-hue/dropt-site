@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works — Dropt</title>
+<meta name="description" content="Six engines. Sub-300ms. One promise. A deep look under the hood of the Dropt orchestration platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="glow glow--soft" data-glow></div>
+
+  <nav class="nav" data-nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="dot"></span>DROPT</a>
+      <div class="nav-links">
+        <a href="how-it-works.html" class="is-active">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="for-brands.html">For Brands</a>
+        <a href="about.html">About</a>
+      </div>
+      <a href="pilot.html" class="btn btn-nav">Start Pilot <span class="arr">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" style="padding:178px 32px 96px">
+    <div class="hero-orb" data-parallax="0.22" style="top:-220px;right:-160px;width:720px;height:720px;background:radial-gradient(circle,rgba(255,77,45,0.2) 0%,rgba(255,77,45,0.04) 42%,rgba(255,77,45,0) 70%)"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow reveal" data-reveal="0" style="margin-bottom:28px">The Architecture</div>
+      <h1 class="hero-title reveal" data-reveal="80" style="font-size:clamp(42px,6.4vw,88px);line-height:1;margin-bottom:28px;max-width:13ch">Six engines. <span class="accent">Sub-300ms.</span> One promise.</h1>
+      <p class="hero-sub reveal" data-reveal="160" style="max-width:640px;margin-bottom:44px">A deep look under the hood — for the CTOs and operations heads evaluating the platform. Here is exactly what fires between a customer&rsquo;s pincode and their doorstep.</p>
+      <div class="statstrip reveal" data-reveal="240">
+        <div class="stat" style="min-width:170px"><div class="stat-num" data-count="300" data-pre="&lt;" data-suf="ms">&lt;300ms</div><div class="stat-label">Eligibility response</div></div>
+        <div class="stat" style="min-width:170px"><div class="stat-num" data-count="6">6</div><div class="stat-label">Orchestration engines</div></div>
+        <div class="stat" style="min-width:170px"><div class="stat-num" data-count="8">8</div><div class="stat-label">Order lifecycle states</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- A. ENGINE FLOW -->
+  <section class="section section--alt" style="padding:110px 32px">
+    <div class="section-inner">
+      <div class="eyebrow reveal" data-reveal="0" style="margin-bottom:20px">A · Orchestration Flow</div>
+      <h2 class="h2 h2--sm reveal" data-reveal="60" style="max-width:18ch;margin-bottom:44px">From pincode to door, in six orchestrated stages.</h2>
+      <div class="grid grid--auto-180">
+        <div class="flow-card reveal" data-reveal="0"><div class="flow-n">01</div><div class="flow-name">Eligibility</div><div class="flow-tech">POST /check-delivery-eta · &lt;300ms</div></div>
+        <div class="flow-card reveal" data-reveal="60"><div class="flow-n">02</div><div class="flow-name">Inventory</div><div class="flow-tech">Geo-aware · Redis cache · reserve-lock</div></div>
+        <div class="flow-card reveal" data-reveal="120"><div class="flow-n">03</div><div class="flow-name">OMS / WMS</div><div class="flow-tech">Shopify · Unicommerce · Browntape</div></div>
+        <div class="flow-card reveal" data-reveal="180"><div class="flow-n">04</div><div class="flow-name">Store Fulfillment</div><div class="flow-tech">React Native · priority queue · SLA</div></div>
+        <div class="flow-card reveal" data-reveal="240"><div class="flow-n">05</div><div class="flow-name">Rider Dispatch</div><div class="flow-tech">Broadcast · ETA score · reassign</div></div>
+        <div class="flow-card reveal" data-reveal="300"><div class="flow-n">06</div><div class="flow-name">Tracking &amp; Proof</div><div class="flow-tech">WebSocket GPS · OTP · photo · geo-fence</div></div>
+      </div>
+      <div class="grid grid--auto-280" style="margin-top:32px">
+        <div class="cap-card reveal" data-reveal="0"><div class="cap-title">Sub-300ms eligibility</div><div class="cap-body">A six-check stack resolves before the customer ever reaches checkout.</div></div>
+        <div class="cap-card reveal" data-reveal="80"><div class="cap-title">Redis cache layer</div><div class="cap-body">Geo-indexed stock and store-status queries served from memory, not disk.</div></div>
+        <div class="cap-card reveal" data-reveal="160"><div class="cap-title">WebSocket GPS tracking</div><div class="cap-body">A persistent socket streams the rider&rsquo;s live position to the brand&rsquo;s tracking page.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B. ELIGIBILITY DEEP DIVE -->
+  <section class="section section-inner" style="padding:110px 32px">
+    <div class="eyebrow reveal" data-reveal="0" style="margin-bottom:20px">B · Eligibility Engine</div>
+    <h2 class="h2 h2--sm reveal" data-reveal="60" style="max-width:20ch;margin-bottom:14px">Six checks. Under 300 milliseconds. Before checkout.</h2>
+    <p class="lead reveal" data-reveal="120" style="max-width:600px;margin-bottom:44px">Watch the stack resolve in real time — every check runs the instant a customer enters their location.</p>
+    <div class="elig-grid">
+      <div class="elig-panel" id="eligPanel">
+        <div class="elig-head">
+          <span class="ep-label">POST /check-delivery-eta</span>
+          <button class="run-check" id="runCheck">Run check &#9656;</button>
+        </div>
+        <div class="checks" id="checks">
+          <div class="check-row" data-ms="12"><div class="cr-left"><span class="check-dot">1</span><span class="check-name">API call received</span></div><span class="check-ms">+12ms</span></div>
+          <div class="check-row" data-ms="84"><div class="cr-left"><span class="check-dot">2</span><span class="check-name">Inventory lookup — stores + warehouses</span></div><span class="check-ms">+84ms</span></div>
+          <div class="check-row" data-ms="38"><div class="cr-left"><span class="check-dot">3</span><span class="check-name">Cache check — Redis + geo queries</span></div><span class="check-ms">+38ms</span></div>
+          <div class="check-row" data-ms="29"><div class="cr-left"><span class="check-dot">4</span><span class="check-name">Store status — hyperlocal flag + load</span></div><span class="check-ms">+29ms</span></div>
+          <div class="check-row" data-ms="57"><div class="cr-left"><span class="check-dot">5</span><span class="check-name">Rider availability — supply + density</span></div><span class="check-ms">+57ms</span></div>
+          <div class="check-row" data-ms="67"><div class="cr-left"><span class="check-dot">6</span><span class="check-name">ETA calculation — SLA + traffic + buffer</span></div><span class="check-ms">+67ms</span></div>
+        </div>
+        <div class="elig-elapsed"><span class="ee-label">elapsed</span><span class="ee-val" id="elapsed">0ms</span></div>
+      </div>
+      <div class="elig-out">
+        <div class="eo-head">Output</div>
+        <div class="out-card" data-tier="hyperlocal"><div class="oc-top"><span style="font-size:16px">&#9889;</span><span class="oc-title">30-60 Mins</span></div><div class="oc-body">Hyperlocal — same store, in zone.</div></div>
+        <div class="out-card" data-tier="express"><div class="oc-top"><span style="font-size:16px">&#9889;</span><span class="oc-title">Upto 3 hours</span></div><div class="oc-body">Express — adjacent zone or warehouse.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. INTEGRATION -->
+  <section class="section section--alt" style="padding:110px 32px">
+    <div class="section-inner">
+      <div class="eyebrow reveal" data-reveal="0" style="margin-bottom:20px">C · Integration</div>
+      <h2 class="h2 h2--sm reveal" data-reveal="60" style="margin-bottom:44px">How a brand connects — in six steps.</h2>
+      <div class="grid grid--auto-300">
+        <div class="intstep reveal" data-reveal="0"><div class="intstep-n">1</div><div><div class="intstep-title">Install the Dropt SDK</div><div class="intstep-body">Drop the snippet onto your Shopify or custom storefront.</div></div></div>
+        <div class="intstep reveal" data-reveal="60"><div class="intstep-n">2</div><div><div class="intstep-title">Connect your OMS</div><div class="intstep-body">Shopify, Unicommerce or Browntape — OAuth in minutes.</div></div></div>
+        <div class="intstep reveal" data-reveal="120"><div class="intstep-n">3</div><div><div class="intstep-title">Map stores &amp; inventory</div><div class="intstep-body">Geo-tag store locations and sync live stock.</div></div></div>
+        <div class="intstep reveal" data-reveal="180"><div class="intstep-n">4</div><div><div class="intstep-title">Onboard store staff</div><div class="intstep-body">Install the Dropt Store App and train the floor.</div></div></div>
+        <div class="intstep reveal" data-reveal="240"><div class="intstep-n">5</div><div><div class="intstep-title">Connect rider network</div><div class="intstep-body">Activate riders across your delivery zones.</div></div></div>
+        <div class="intstep reveal" data-reveal="300"><div class="intstep-n">6</div><div><div class="intstep-title">Go live</div><div class="intstep-body">The delivery promise appears on your checkout.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. ORDER LIFECYCLE -->
+  <section class="section section-inner" style="padding:110px 32px">
+    <div class="eyebrow reveal" data-reveal="0" style="margin-bottom:20px">D · Order Lifecycle</div>
+    <h2 class="h2 h2--sm reveal" data-reveal="60" style="margin-bottom:44px">Eight states, one atomic transaction.</h2>
+    <div class="grid grid--4 life-grid" style="margin-bottom:32px">
+      <div class="life-card reveal" data-reveal="0"><div class="life-n">01</div><div class="life-name">Order Placed</div></div>
+      <div class="life-card reveal" data-reveal="60"><div class="life-n">02</div><div class="life-name">OMS Routes</div></div>
+      <div class="life-card reveal" data-reveal="120"><div class="life-n">03</div><div class="life-name">Store Notified</div></div>
+      <div class="life-card reveal" data-reveal="180"><div class="life-n">04</div><div class="life-name">Packed</div></div>
+      <div class="life-card reveal" data-reveal="0"><div class="life-n">05</div><div class="life-name">Rider Wins</div></div>
+      <div class="life-card reveal" data-reveal="60"><div class="life-n">06</div><div class="life-name">Pickup + QC</div></div>
+      <div class="life-card reveal" data-reveal="120"><div class="life-n">07</div><div class="life-name">Live Tracking</div></div>
+      <div class="life-card reveal" data-reveal="180"><div class="life-n">08</div><div class="life-name">OTP + Photo Delivered</div></div>
+    </div>
+    <div class="grid grid--auto-280">
+      <div class="life-note reveal" data-reveal="0"><div class="life-note-title">Communication</div><div class="life-note-body">SMS + WhatsApp on every milestone.</div></div>
+      <div class="life-note reveal" data-reveal="80"><div class="life-note-title">Settlement</div><div class="life-note-body">Brand wallet debited, rider UPI credited, dashboard updated — atomically.</div></div>
+      <div class="life-note reveal" data-reveal="160"><div class="life-note-title">Returns</div><div class="life-note-body">The same rider network in reverse. Brand-policy engine &rarr; reverse pickup &rarr; store / WH.</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" style="padding:130px 32px">
+    <div class="cta-orb" style="width:900px"></div>
+    <div class="cta-inner" style="max-width:820px">
+      <h2 class="cta-title reveal" data-reveal="0" style="font-size:clamp(32px,4.6vw,56px);line-height:1.08;margin-bottom:28px">Architecture validated. Pilot in 60 days.</h2>
+      <div class="cta-actions reveal" data-reveal="80">
+        <a href="pilot.html" class="btn btn-primary">Start Your Pilot <span class="arr">&rarr;</span></a>
+        <a href="pricing.html" class="btn btn-ghost">See Pricing &rarr;</a>
+      </div>
+      <div class="cta-mail reveal" data-reveal="120">pilot@dropt.in</div>
+    </div>
+  </section>
+
+  <footer class="footer" data-footer></footer>
+</div>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/footer.js"></script>
+<script>
+/* Eligibility check sequence — steps through the six checks,
+   auto-starts when scrolled into view, replays on "Run check". */
+(function () {
+  var rows = [].slice.call(document.querySelectorAll('#checks .check-row'));
+  var outs = [].slice.call(document.querySelectorAll('.out-card'));
+  var elapsedEl = document.getElementById('elapsed');
+  var btn = document.getElementById('runCheck');
+  var step = 0, timer = null;
+
+  function render() {
+    var elapsed = 0;
+    rows.forEach(function (row, i) {
+      var done = i < step;
+      var active = i === step - 1;
+      row.classList.toggle('is-done', done);
+      row.classList.toggle('is-active', active);
+      var dot = row.querySelector('.check-dot');
+      dot.textContent = done ? '✓' : (i + 1);
+      if (done) elapsed += parseInt(row.getAttribute('data-ms'), 10);
+    });
+    elapsedEl.textContent = elapsed + 'ms';
+    var complete = step >= 6;
+    outs.forEach(function (o) {
+      var lit = complete && o.getAttribute('data-tier') !== 'standard';
+      o.classList.toggle('is-complete', complete);
+      o.classList.toggle('is-lit', lit);
+    });
+  }
+  function start() {
+    if (timer) clearInterval(timer);
+    step = 0; render();
+    if (Dropt.reduceMotion) { step = 6; render(); return; }
+    timer = setInterval(function () {
+      if (step >= 6) { clearInterval(timer); timer = null; return; }
+      step += 1; render();
+    }, 480);
+  }
+  btn.addEventListener('click', start);
+  render();
+
+  /* auto-start once when the panel scrolls into view */
+  var armed = false;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !armed) { armed = true; start(); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(document.getElementById('eligPanel'));
+  } else { start(); }
+})();
+</script>
+</body>
+</html>

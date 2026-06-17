@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/c/Users/abhis/Downloads/\" | grep -i interactive)",
+      "Bash(mkdir -p \"handoff_extract\")",
+      "Bash(unzip -o \"Interactive Product Site Design-handoff.zip\" -d \"handoff_extract\")",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell($cmds = 'node','npx','python','py'; foreach\\($c in $cmds\\){ $p = \\(Get-Command $c -ErrorAction SilentlyContinue\\).Source; if\\($p\\){ \"$c -> $p\" } else { \"$c -> \\(not found\\)\" } })"
+    ]
+  }
+}
