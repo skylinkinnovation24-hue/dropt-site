@@ -137,8 +137,8 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/footer.js"></script>
 <script>
-/* Pilot application form — client-side validation + success state.
-   (Wire the submit handler to your backend / CRM when going live.) */
+/* Pilot application form — client-side validation, then opens the submitter's
+   mail client with a pre-filled application to the Dropt team (mailto). */
 (function () {
   var form = document.getElementById('pilotForm');
   var success = document.getElementById('formSuccess');
@@ -184,6 +184,28 @@
     if (!role) { showError('role', true, 'Required'); ok = false; }
     if (!emailOk) { showError('email', true, email ? 'Enter a valid email' : 'Required'); ok = false; }
     if (!ok) return;
+
+    /* No backend on this static site — open the submitter's mail client with a
+       pre-filled application addressed to the Dropt team. They press Send. */
+    var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    var lines = [
+      'Brand: ' + brand,
+      'Role: ' + role,
+      'Website: ' + (get('website') || '—'),
+      'Monthly online orders: ' + (get('orders') || '—'),
+      'Stores in Bangalore: ' + (get('stores') || '—'),
+      'Current delivery setup: ' + (get('setup') || '—'),
+      'On Shopify?: ' + (shopify || '—'),
+      'Biggest delivery pain point: ' + (get('pain') || '—'),
+      'Email: ' + email,
+      'Phone: ' + (get('phone') || '—')
+    ];
+    var subject = 'Pilot application — ' + brand;
+    var body = 'New Dropt pilot application\n\n' + lines.join('\n') + '\n';
+    var mailto = 'mailto:skylinkinnovation24@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
 
     /* success */
     document.getElementById('successName').textContent = brand;
