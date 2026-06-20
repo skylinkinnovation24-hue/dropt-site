@@ -930,6 +930,25 @@ select.field option { background: var(--surface); color: #fff; }
   .hero, .section, .cta, .blog-cta { padding-left: 18px !important; padding-right: 18px !important; }
   .nav-inner { padding: 16px 18px; }
 
+  /* Scale the big display headings down so they fit phones comfortably.
+     !important is needed because some heroes set font-size inline (e.g.
+     how-it-works' clamp(42px,…) whose 42px floor is too large here). */
+  .hero-title    { font-size: clamp(30px, 8.4vw, 42px) !important; line-height: 1.05 !important; }
+  .h2, .h2--sm   { font-size: clamp(25px, 6.8vw, 33px) !important; }
+  .cta-title     { font-size: clamp(27px, 7.4vw, 37px) !important; }
+  .pilot-left h1 { font-size: clamp(28px, 7.8vw, 38px) !important; }
+  .hero-sub, .lead { font-size: 16px !important; }
+  /* never let a long token like "Sub-300ms." spill past the screen edge */
+  .hero-title, .h2, .cta-title, .pilot-left h1 { overflow-wrap: break-word; }
+
+  /* Comparison table: shrink to fit the phone instead of scrolling sideways.
+     Drop the 760px min-width and tighten type/padding so all 4 columns fit. */
+  .table-wrap { overflow-x: hidden; }
+  table.compare { min-width: 0; width: 100%; font-size: 11px; table-layout: fixed; }
+  .compare th, .compare td { padding: 10px 7px; overflow-wrap: break-word; word-break: break-word; }
+  .compare th { font-size: 11.5px; }
+  .compare th.dim-head { font-size: 9px; letter-spacing: 0.05em; }
+
   /* trim oversized card padding so content keeps room */
   .engine-panel, .vs-card, .about-block, .elig-panel, .form-panel, .tier,
   .calc-inputs, .calc-out, .track-card, .earn-card, .blog-featured-text,
@@ -959,6 +978,20 @@ select.field option { background: var(--surface); color: #fff; }
   .promise-banner { flex-direction: column; align-items: flex-start; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
   .hero-actions, .cta-actions { width: 100%; }
+  /* let the addon price drop under its name instead of forcing a hair of overflow */
+  .addon { flex-wrap: wrap; gap: 8px; }
+}
+
+/* ---- 601–900: tablets & large phones ----
+   The ≤860 rules above collapse every card grid to ONE full-width column,
+   which leaves tablets with sparse, over-wide cards and very long pages.
+   Restore a 2-up layout for the small-card grids in this band so the extra
+   width is actually used. (Larger 2-pane content blocks stay single-column.) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .tiers, .addons, .blog-grid,
+  .grid--5, .grid--4, .grid--3,
+  .grid--auto-330, .grid--auto-300,
+  .life-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 /* Touch devices: the cursor glow has no pointer to follow */

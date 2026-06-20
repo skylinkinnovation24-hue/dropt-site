@@ -40,7 +40,7 @@
       <p class="hero-sub reveal" data-reveal="160">The white-label fulfillment platform that turns your existing stores into an instant-delivery network — without dark stores, without the marketplace tax.</p>
       <div class="hero-actions reveal" data-reveal="240">
         <a href="pilot.html" class="btn btn-primary">Start Your Pilot <span class="arr">&rarr;</span></a>
-        <a href="#how" class="btn btn-ghost">See How It Works</a>
+        <a href="how-it-works.html" class="btn btn-ghost">See How It Works</a>
       </div>
       <div class="statstrip reveal" data-reveal="320">
         <div class="stat"><div class="stat-num" data-count="30" data-suf="m">30m</div><div class="stat-label">Promise to door</div></div>
@@ -74,88 +74,6 @@
       <div class="prow reveal" data-reveal="120"><div class="prow-num">03</div><div class="prow-title">Inventory Visibility</div><div class="prow-body">OMS not built for geo-based stock — you can&rsquo;t promise availability.</div></div>
       <div class="prow reveal" data-reveal="180"><div class="prow-num">04</div><div class="prow-title">Rider Orchestration</div><div class="prow-body">No hyperlocal dispatch for non-grocery — it simply doesn&rsquo;t scale.</div></div>
       <div class="prow reveal" data-reveal="240"><div class="prow-num">05</div><div class="prow-title">Marketplace Tax</div><div class="prow-body">Brands rent delivery from Myntra/Ajio — no customer data, high commission.</div></div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS / ENGINES -->
-  <section id="how" class="section section--alt">
-    <div class="section-inner">
-      <div class="eyebrow reveal" data-reveal="0">How Dropt Works</div>
-      <h2 class="h2 reveal" data-reveal="60" style="max-width:900px;margin-bottom:14px">Six engines, one orchestrated promise — from pincode to door.</h2>
-      <p class="lead reveal" data-reveal="120" style="margin-bottom:48px">Select an engine to see what fires under the hood.</p>
-
-      <div class="engine-chips reveal" data-reveal="160" id="engineChips">
-        <button class="engine-chip is-active" data-engine="0"><span class="chip-top"><span class="chip-n">01</span><span class="chip-name">Eligibility</span></span><span class="chip-tag">Pincode &rarr; Promise</span></button>
-        <div class="chip-arrow">&rarr;</div>
-        <button class="engine-chip" data-engine="1"><span class="chip-top"><span class="chip-n">02</span><span class="chip-name">Inventory</span></span><span class="chip-tag">Geo-aware stock</span></button>
-        <div class="chip-arrow">&rarr;</div>
-        <button class="engine-chip" data-engine="2"><span class="chip-top"><span class="chip-n">03</span><span class="chip-name">OMS / WMS</span></span><span class="chip-tag">Smart routing</span></button>
-        <div class="chip-arrow">&rarr;</div>
-        <button class="engine-chip" data-engine="3"><span class="chip-top"><span class="chip-n">04</span><span class="chip-name">Store Fulfillment</span></span><span class="chip-tag">Staff app</span></button>
-        <div class="chip-arrow">&rarr;</div>
-        <button class="engine-chip" data-engine="4"><span class="chip-top"><span class="chip-n">05</span><span class="chip-name">Rider Dispatch</span></span><span class="chip-tag">Broadcast &amp; accept</span></button>
-        <div class="chip-arrow">&rarr;</div>
-        <button class="engine-chip" data-engine="5"><span class="chip-top"><span class="chip-n">06</span><span class="chip-name">Tracking &amp; Proof</span></span><span class="chip-tag">Live to door</span></button>
-      </div>
-
-      <div class="engine-panels" id="enginePanels">
-        <div class="engine-panel is-active" data-panel="0"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 01 · Pincode &rarr; Promise</div><h3>Eligibility</h3><p>Customer enters a location and POST /check-delivery-eta fires. A sub-300ms response surfaces a &#9889;30-60 min or &#9889;up-to-3-hour badge before checkout — turning delivery speed into a conversion lever.</p></div>
-          <div class="pe-code">POST /check-delivery-eta
-{
-  "pincode": "560001",
-  "cart": [{ "sku": "TSH-BLK-M" }]
-}
-
-&rarr; 287ms
-{ "promise": "&#9889; 42 min" }</div>
-        </div></div>
-        <div class="engine-panel" data-panel="1"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 02 · Geo-aware stock</div><h3>Inventory</h3><p>Real-time stock lookup across stores and warehouses, Redis-cached for speed. Inventory is reserved and locked the moment an order is placed — so the promise is never broken.</p></div>
-          <div class="pe-code">GET /stock?geo=12.97,77.59
-
-stores: [
-  Indiranagar  &#10003; 4
-  Koramangala  &#10003; 2
-]
-reserve &rarr; LOCKED</div>
-        </div></div>
-        <div class="engine-panel" data-panel="2"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 03 · Smart routing</div><h3>OMS / WMS</h3><p>Routes orders into Shopify, Unicommerce or Browntape and auto-allocates them to the hyperlocal fulfillment queue — no manual triage, no spreadsheet handoffs.</p></div>
-          <div class="pe-code">route(order)
- &#9500;&#9472; Shopify
- &#9500;&#9472; Unicommerce
- &#9492;&#9472; Browntape
-
-queue: HYPERLOCAL</div>
-        </div></div>
-        <div class="engine-panel" data-panel="3"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 04 · Staff app</div><h3>Store Fulfillment</h3><p>A React Native app gives store staff a priority queue, an SLA countdown timer and a guided pack &rarr; handoff flow. The shop floor becomes a micro-fulfillment node.</p></div>
-          <div class="pe-code">STORE APP
-queue &#9656; 3 orders
-SLA  &#9656; 06:12 &#9201;
-status &#9656; PACKING</div>
-        </div></div>
-        <div class="engine-panel" data-panel="4"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 05 · Broadcast &amp; accept</div><h3>Rider Dispatch</h3><p>Proprietary broadcast-and-accept dispatch with ETA scoring, auto-reassignment on timeout and surge handling — tuned for fashion drops, not 10-minute grocery sprints.</p></div>
-          <div class="pe-code">broadcast &rarr; 5 riders
-accept &#9666; R-204
-ETA score: 0.91
-reassign if &gt; 45s</div>
-        </div></div>
-        <div class="engine-panel" data-panel="5"><div class="engine-panel-grid">
-          <div><div class="pe-tag">ENGINE 06 · Live to door</div><h3>Tracking &amp; Proof</h3><p>WebSocket GPS tracking on a branded page hosted on the brand&rsquo;s own domain, closed out with OTP, photo proof and geo-fence verification at the doorstep.</p></div>
-          <div class="pe-code">ws://track/ORD-8841
-lat/lng &#9656; live
-OTP &#9656; 4471 &#10003;
-photo &#9656; captured &#10003;</div>
-        </div></div>
-      </div>
-
-      <div class="promise-banner reveal" data-reveal="0">
-        <div class="pb-text"><span class="pb-emoji">&#9889;</span><span>Dropt Promise: 30-60 min or up-to-3-hour delivery — selected before the customer ever clicks Pay.</span></div>
-        <span class="pb-side">+ Returns &amp; Reverse Logistics &#8634;</span>
-      </div>
     </div>
   </section>
 
@@ -291,19 +209,8 @@ photo &#9656; captured &#10003;</div>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/footer.js"></script>
 <script>
-/* Engine selector — click a chip to swap the detail panel */
+/* Customer journey — auto-advances, click to jump */
 (function () {
-  var chips = document.querySelectorAll('#engineChips .engine-chip');
-  var panels = document.querySelectorAll('#enginePanels .engine-panel');
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      var i = chip.getAttribute('data-engine');
-      chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === i); });
-    });
-  });
-
-  /* Customer journey — auto-advances, click to jump */
   var steps = [].slice.call(document.querySelectorAll('#journey .journey-step'));
   var fill = document.getElementById('journeyFill');
   var current = 0, timer = null;
