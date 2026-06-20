@@ -5,7 +5,11 @@
       "Bash(mkdir -p \"handoff_extract\")",
       "Bash(unzip -o \"Interactive Product Site Design-handoff.zip\" -d \"handoff_extract\")",
       "mcp__Claude_Preview__preview_start",
-      "PowerShell($cmds = 'node','npx','python','py'; foreach\\($c in $cmds\\){ $p = \\(Get-Command $c -ErrorAction SilentlyContinue\\).Source; if\\($p\\){ \"$c -> $p\" } else { \"$c -> \\(not found\\)\" } })"
+      "PowerShell($cmds = 'node','npx','python','py'; foreach\\($c in $cmds\\){ $p = \\(Get-Command $c -ErrorAction SilentlyContinue\\).Source; if\\($p\\){ \"$c -> $p\" } else { \"$c -> \\(not found\\)\" } })",
+      "PowerShell(foreach \\($t in 'python','py','python3'\\) { $c = Get-Command $t -ErrorAction SilentlyContinue; if \\($c\\) { \"$t : $\\($c.Source\\)\" } else { \"$t : not found\" } })",
+      "PowerShell($script = \"C:\\\\Users\\\\abhis\\\\OneDrive\\\\Desktop\\\\Dropt website\\\\.claude\\\\serve-lan.ps1\"; Start-Process -FilePath \"powershell\" -ArgumentList \"-NoProfile\",\"-ExecutionPolicy\",\"Bypass\",\"-File\",\"`\"$script`\"\" -WindowStyle Hidden; Start-Sleep -Seconds 2; \"---LOCAL---\"; try { \\(Invoke-WebRequest -Uri \"http://localhost:8080/index.html\" -UseBasicParsing -TimeoutSec 5\\).StatusCode } catch { \"ERR: $\\($_.Exception.Message\\)\" }; \"---LAN---\"; try { $r=\\(Invoke-WebRequest -Uri \"http://192.168.1.7:8080/pricing.html\" -UseBasicParsing -TimeoutSec 5\\); \"$\\($r.StatusCode\\) len=$\\($r.RawContentLength\\)\" } catch { \"ERR: $\\($_.Exception.Message\\)\" })",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
