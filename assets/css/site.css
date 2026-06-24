@@ -1,0 +1,65 @@
+/* Dropt — shared design system (converted from the Claude Design handoff).
+   Dark theme · coral #FF4D2D · lime #C8E63E · Space Grotesk / DM Sans / JetBrains Mono. */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0D0D0D;color:#fff;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#FF4D2D;color:#0D0D0D}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+@keyframes droptPulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,77,45,0.45)}70%{box-shadow:0 0 0 14px rgba(255,77,45,0)}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes dashFlow{to{stroke-dashoffset:-40}}
+.marqueeTrack{animation:marquee 26s linear infinite}
+.marqueeWrap:hover .marqueeTrack{animation-play-state:paused}
+.pulseCta{animation:ctaPulse 2.6s ease-out infinite}
+
+/* hover states (were style-hover in the prototype) */
+.nlink{transition:color .2s}
+.nlink:hover{color:#F5F0EB !important}
+.cta{transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,77,45,0.35)}
+.ghost{transition:border-color .2s,background .2s}
+.ghost:hover{border-color:rgba(255,255,255,0.4) !important;background:rgba(255,255,255,0.04)}
+.lift{transition:transform .3s,border-color .3s}
+.lift:hover{transform:translateY(-4px);border-color:rgba(255,77,45,0.4) !important}
+.rowh{transition:border-color .3s}
+.rowh:hover{border-color:rgba(255,77,45,0.4) !important}
+
+/* reveal-on-scroll */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+[data-reveal].shown{opacity:1;transform:none}
+
+/* nav + responsive */
+.navBurger{display:none}
+@media (max-width:1024px){ .grid5{grid-template-columns:repeat(2,1fr) !important} }
+@media (max-width:880px){
+  .navDesktop{display:none !important}
+  .navBurger{display:flex !important}
+  .showcaseGrid,.grid2,.grid3,.heroSplit{grid-template-columns:1fr !important}
+  .grid4{grid-template-columns:repeat(2,1fr) !important}
+  .sticky{position:static !important}
+  .flowSteps{grid-template-columns:repeat(3,1fr) !important}
+}
+@media (max-width:560px){
+  .grid4,.grid5,.flowSteps{grid-template-columns:1fr !important}
+  .sx{padding-left:18px !important;padding-right:18px !important}
+  .statHide{display:none !important}
+}
+
+/* mobile menu (JS toggles .open) */
+.mobileMenu{position:fixed;inset:0;z-index:60;background:rgba(13,13,13,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;flex-direction:column;padding:24px}
+.mobileMenu.open{display:flex}
+
+/* showcase tabs */
+.tabBtn{white-space:nowrap;cursor:pointer;font-family:'Space Grotesk';font-weight:600;font-size:13.5px;padding:11px 18px;border:none;transition:all .25s;background:transparent;color:rgba(255,255,255,0.6)}
+.tabBtn.active{background:#FF4D2D;color:#0D0D0D}
+.tabPanel{display:none}
+.tabPanel.active{display:block}
+
+/* flow lit step */
+.flowCard{position:relative;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:26px 22px;transition:border-color .4s,background .4s}
+.flowCard.lit{border-color:rgba(255,77,45,0.45);background:#181312}
+.flowBadge{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:all .4s;background:#0D0D0D;border:1px solid rgba(255,255,255,0.1)}
+.flowCard.lit .flowBadge{background:rgba(255,77,45,0.14);border-color:rgba(255,77,45,0.5)}

@@ -3,94 +3,223 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — Dropt</title>
-<meta name="description" content="Notes on hyperlocal, fashion & the infrastructure lane — strategy, economics and product from the Dropt team.">
+<title>Blog — Dropt | Notes on Hyperlocal Commerce &amp; Infrastructure</title>
+<meta name="description" content="The Dropt blog: notes on hyperlocal quick-commerce, the economics of 60-minute local delivery, white-label fulfilment and the infrastructure lane for D2C brands.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .blogFeatured{grid-template-columns:1.1fr 0.9fr}
+  .blogGrid{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.blogFeatured{grid-template-columns:1fr}.blogGrid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <div class="glow glow--soft" data-glow></div>
+<div style="position:relative;min-height:100vh;background:#0D0D0D">
 
-  <nav class="nav" data-nav>
-    <div class="nav-inner">
-      <a href="index.html" class="brand"><span class="dot"></span>DROPT</a>
-      <div class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="for-brands.html">For Brands</a>
-        <a href="about.html">About</a>
+  <div data-glow style="position:fixed;left:-300px;top:-300px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.13) 0%,rgba(255,77,45,0) 65%);pointer-events:none;z-index:1;will-change:transform"></div>
+
+  <!-- NAV -->
+  <nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid rgba(255,255,255,0);transition:background .3s,backdrop-filter .3s,border-color .3s">
+    <div class="sx" style="max-width:1240px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:21px;letter-spacing:-0.02em;color:#F5F0EB">
+        <span style="width:9px;height:9px;border-radius:50%;background:#FF4D2D;animation:droptPulse 2.6s ease-in-out infinite"></span>DROPT
+      </a>
+      <div class="navDesktop" style="display:flex;align-items:center;gap:32px;font-size:14.5px;color:rgba(255,255,255,0.55);font-weight:500">
+        <a class="nlink" href="index.html">Home</a>
+        <a class="nlink" href="how-it-works.html">How It Works</a>
+        <a class="nlink" href="pricing.html">Pricing</a>
+        <a class="nlink" href="for-brands.html">For Brands</a>
+        <a class="nlink" href="about.html">About</a>
       </div>
-      <a href="pilot.html" class="btn btn-nav">Start Pilot <span class="arr">&rarr;</span></a>
+      <a class="navDesktop pulseCta cta" href="pilot.html" style="align-items:center;gap:8px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:0">Start Pilot <span style="font-size:16px">→</span></a>
+      <button class="navBurger" data-burger style="align-items:center;justify-content:center;width:42px;height:42px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#F5F0EB;font-size:18px;cursor:pointer;border-radius:0">☰</button>
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div class="mobileMenu" data-menu>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:48px">
+      <span style="display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:21px;color:#F5F0EB"><span style="width:9px;height:9px;border-radius:50%;background:#FF4D2D"></span>DROPT</span>
+      <button data-close style="width:42px;height:42px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#F5F0EB;font-size:20px;cursor:pointer;border-radius:0">✕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="index.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">Home</a>
+      <a href="how-it-works.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">How It Works</a>
+      <a href="pricing.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">Pricing</a>
+      <a href="for-brands.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">For Brands</a>
+      <a href="for-riders.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">For Riders</a>
+      <a href="about.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">About</a>
+    </div>
+    <a href="pilot.html" style="margin-top:auto;text-align:center;background:#FF4D2D;color:#0D0D0D;font-family:'Space Grotesk';font-weight:600;font-size:17px;padding:17px;border-radius:0">Start Your Pilot →</a>
+  </div>
+
   <!-- HERO -->
-  <header class="hero" style="padding:178px 32px 60px">
-    <div class="hero-orb" data-parallax="0.22" style="top:-240px;right:-160px;width:720px;height:720px;background:radial-gradient(circle,rgba(255,77,45,0.18) 0%,rgba(255,77,45,0.04) 42%,rgba(255,77,45,0) 70%)"></div>
-    <div class="hero-inner" style="max-width:1240px">
-      <div class="hero-eyebrow reveal" data-reveal="0" style="margin-bottom:26px">The Dropt Blog</div>
-      <h1 class="hero-title reveal" data-reveal="80" style="font-size:clamp(40px,5.4vw,76px);line-height:1;max-width:16ch">Notes on hyperlocal, fashion &amp; the infrastructure lane.</h1>
+  <header class="sx" style="position:relative;padding:178px 32px 60px;overflow:hidden">
+    <div data-parallax style="position:absolute;top:-240px;right:-160px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.18) 0%,rgba(255,77,45,0.04) 42%,rgba(255,77,45,0) 70%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;z-index:2">
+      <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.32em;text-transform:uppercase;color:#FF4D2D;margin-bottom:26px">The Dropt Blog</div>
+      <h1 data-reveal="80" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(40px,5.4vw,76px);line-height:1.0;letter-spacing:-0.03em;color:#F5F0EB;margin:0;max-width:16ch">Notes on hyperlocal commerce &amp; the infrastructure lane.</h1>
     </div>
   </header>
 
   <!-- FEATURED -->
-  <section class="section-inner" style="position:relative;padding:30px 32px 20px">
-    <a href="#" class="blog-featured reveal" data-reveal="0">
-      <div class="blog-featured-text">
-        <span class="ft-tag">Featured · Strategy</span>
-        <h2>Why fashion brands are losing customers to marketplaces — and how to get them back.</h2>
-        <p>Commission is the smallest cost. The real loss is the customer relationship, the data, and the right to retarget. Here&rsquo;s the math, and the way out.</p>
-        <span class="ft-read">8 min read</span>
+  <section class="sx" style="position:relative;padding:30px 32px 20px;max-width:1240px;margin:0 auto">
+    <a data-reveal="0" href="#" class="lift blogFeatured" style="display:grid;gap:0;background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:22px;overflow:hidden;transition:border-color .3s">
+      <div style="padding:44px 46px;display:flex;flex-direction:column;justify-content:center">
+        <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">Featured · Strategy</span>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.12;letter-spacing:-0.02em;color:#F5F0EB;margin:0 0 16px">Why brands are losing customers to dark-store apps — and how to get them back.</h2>
+        <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.55);margin:0 0 22px">Commission is the smallest cost. The real loss is the customer relationship, the data, and the right to retarget. Here's the math, and the way out.</p>
+        <span style="font-family:'JetBrains Mono';font-size:13px;color:rgba(255,255,255,0.4)">8 min read</span>
       </div>
-      <div class="blog-featured-art"><div class="grid-bg"></div><div class="big">15–30%</div></div>
+      <div style="background:linear-gradient(135deg,#1a1a1a,#0D0D0D);position:relative;min-height:300px;border-left:1px solid rgba(255,255,255,0.06)">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:32px 32px"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Grotesk';font-weight:700;font-size:96px;color:rgba(255,77,45,0.18);letter-spacing:-0.04em">15–30%</div>
+      </div>
     </a>
   </section>
 
   <!-- ARTICLE GRID -->
-  <section class="section-inner" style="position:relative;padding:30px 32px 110px">
-    <div class="blog-grid">
-      <a href="#" class="blog-card reveal" data-reveal="0">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#161616,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(200,230,62,0.25)">₹31</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Economics</span><h3>The economics of 30-minute fashion delivery: a breakdown</h3><p>Rider payout, infra, SaaS allocation — the full per-order P&amp;L of a hyperlocal drop.</p><span class="bc-read">6 min read</span></div>
+  <section class="sx" style="position:relative;padding:30px 32px 110px;max-width:1240px;margin:0 auto">
+    <div class="blogGrid" style="display:grid;gap:16px">
+      <a data-reveal="0" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#161616,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(200,230,62,0.25);letter-spacing:-0.03em;position:relative">₹31</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Economics</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">The economics of 60-minute local delivery: a breakdown</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">Rider payout, infra, SaaS allocation — the full per-order P&amp;L of a hyperlocal drop.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">6 min read</span>
+        </div>
       </a>
-      <a href="#" class="blog-card reveal" data-reveal="60">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#1a1413,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(255,77,45,0.22)">vs</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Competitive</span><h3>Slikk, ZILO, KNOT: why quick-fashion marketplaces aren&rsquo;t the answer</h3><p>They build marketplaces that compete with you. Here&rsquo;s the structural difference.</p><span class="bc-read">7 min read</span></div>
+      <a data-reveal="60" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#1a1413,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(255,77,45,0.22);letter-spacing:-0.03em;position:relative">vs</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Competitive</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">Why dark-store quick-commerce apps aren't the answer for your brand</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">They build marketplaces that compete with you. Here's the structural difference.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">7 min read</span>
+        </div>
       </a>
-      <a href="#" class="blog-card reveal" data-reveal="120">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#161616,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(255,77,45,0.22)">&#8982;</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Operations</span><h3>How to turn your retail stores into a hyperlocal delivery network</h3><p>Store density is the asset. A practical guide to activating it with zero capex.</p><span class="bc-read">5 min read</span></div>
+      <a data-reveal="120" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#161616,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(255,77,45,0.22);letter-spacing:-0.03em;position:relative">⌖</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Operations</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">How to turn your retail stores into a hyperlocal delivery network</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">Store density is the asset. A practical guide to activating it with zero capex.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">5 min read</span>
+        </div>
       </a>
-      <a href="#" class="blog-card reveal" data-reveal="0">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#13160f,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(200,230,62,0.22)">&#9680;</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Brand</span><h3>The white-label advantage: why owning the experience matters</h3><p>Every branded touchpoint compounds. Why the domain and the data are the moat.</p><span class="bc-read">6 min read</span></div>
+      <a data-reveal="0" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#13160f,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(200,230,62,0.22);letter-spacing:-0.03em;position:relative">◐</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Brand</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">The white-label advantage: why owning the experience matters</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">Every branded touchpoint compounds. Why the domain and the data are the moat.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">6 min read</span>
+        </div>
       </a>
-      <a href="#" class="blog-card reveal" data-reveal="60">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#161616,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(200,230,62,0.22)">$14B</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Market</span><h3>India&rsquo;s $14B fashion ecommerce gap: who will build the infrastructure?</h3><p>A category with capital, demand and store density — but no orchestration layer.</p><span class="bc-read">8 min read</span></div>
+      <a data-reveal="60" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#161616,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(200,230,62,0.22);letter-spacing:-0.03em;position:relative">$14B</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Market</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">India's quick-commerce gap: who will build the infrastructure?</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">A category with capital, demand and store density — but no orchestration layer.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">8 min read</span>
+        </div>
       </a>
-      <a href="#" class="blog-card reveal" data-reveal="120">
-        <div class="blog-card-art" style="background:linear-gradient(135deg,#1a1413,#0D0D0D)"><div class="grid-bg"></div><span class="glyph" style="color:rgba(255,77,45,0.24)">&#9889;</span></div>
-        <div class="blog-card-body"><span class="bc-tag">Product</span><h3>Moving the delivery promise before the buy button</h3><p>How a sub-300ms eligibility check lifts conversion the way Blinkit&rsquo;s badge does.</p><span class="bc-read">5 min read</span></div>
+      <a data-reveal="120" href="#" class="lift" style="display:flex;flex-direction:column;background:#141414;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="height:150px;background:linear-gradient(135deg,#1a1413,#0D0D0D);position:relative;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:26px 26px"></div>
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:rgba(255,77,45,0.24);letter-spacing:-0.03em;position:relative">⚡</span>
+        </div>
+        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+          <span style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Product</span>
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-0.01em;color:#F5F0EB;margin:0 0 12px">Moving the delivery promise before the buy button</h3>
+          <p style="font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.5);margin:0 0 20px;flex:1">How a sub-300ms eligibility check lifts conversion the way a grocery app's speed badge does.</p>
+          <span style="font-family:'JetBrains Mono';font-size:12.5px;color:rgba(255,255,255,0.4)">5 min read</span>
+        </div>
       </a>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section-inner" style="position:relative;padding:30px 32px 120px">
-    <div class="blog-cta reveal" data-reveal="0">
-      <div class="cta-orb"></div>
-      <h2>Want the playbook for your brand?</h2>
-      <a href="pilot.html" class="btn btn-primary">Start Your Pilot <span class="arr">&rarr;</span></a>
+  <section class="sx" style="position:relative;padding:30px 32px 120px;max-width:1240px;margin:0 auto">
+    <div data-reveal="0" style="position:relative;overflow:hidden;background:#0B0B0B;border:1px solid rgba(255,77,45,0.25);border-radius:22px;padding:56px 48px;text-align:center">
+      <div style="position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.14) 0%,rgba(255,77,45,0) 65%);pointer-events:none"></div>
+      <h2 style="position:relative;font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.1;letter-spacing:-0.02em;color:#F5F0EB;margin:0 0 22px">Want the playbook for your brand?</h2>
+      <a href="pilot.html" class="cta" style="position:relative;display:inline-flex;align-items:center;gap:9px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:16px;padding:15px 28px;border-radius:0">Start Your Pilot <span style="font-size:18px">→</span></a>
     </div>
   </section>
 
-  <footer class="footer" data-footer></footer>
+  <!-- FOOTER -->
+  <footer class="sx" style="border-top:1px solid rgba(255,255,255,0.08);background:#0B0B0B;padding:64px 32px 40px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div class="grid5" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:54px">
+        <div>
+          <a href="index.html" style="display:flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#F5F0EB;margin-bottom:16px"><span style="width:8px;height:8px;border-radius:50%;background:#FF4D2D"></span>DROPT</a>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,0.4);max-width:230px;margin:0">Hyperlocal quick-commerce infrastructure for D2C, retail &amp; lifestyle brands. Bangalore, India.</p>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Product</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="how-it-works.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">How It Works</a>
+            <a class="nlink" href="pricing.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Pricing</a>
+            <a class="nlink" href="for-brands.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">For Brands</a>
+            <a class="nlink" href="for-riders.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">For Riders</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="about.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">About</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Careers</a>
+            <a class="nlink" href="pilot.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Contact</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Press Kit</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Resources</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="blog.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Blog</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Documentation</a>
+            <a class="nlink" href="how-it-works.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">API Reference</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Status</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Legal</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Privacy Policy</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Terms of Service</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">DPDP Compliance</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-family:'JetBrains Mono';font-size:13px;color:rgba(255,255,255,0.4)">pilot@dropt.in · invest@dropt.in · dropt.in</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.3)">© 2025 Dropt Technologies Pvt. Ltd. · Bangalore, India</div>
+      </div>
+    </div>
+  </footer>
+
 </div>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/footer.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>

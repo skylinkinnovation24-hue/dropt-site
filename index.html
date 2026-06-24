@@ -3,233 +3,424 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dropt — Drop it. Get it. In 30 minutes.</title>
+<title>Dropt — Hyperlocal Quick-Commerce Infrastructure</title>
 <meta name="description" content="The white-label fulfillment platform that turns your existing stores into an instant-delivery network — without dark stores, without the marketplace tax.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<div class="wrap">
+<div style="position:relative;min-height:100vh;background:#0D0D0D">
 
-  <!-- cursor heat-map glow -->
-  <div class="glow" data-glow></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="ic-cart" viewBox="0 0 24 24"><path d="M7 9h10l-1 11H8L7 9z"/><path d="M9.5 9V6.5a2.5 2.5 0 0 1 5 0V9"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="M4.5 10v9h15v-9"/><path d="M4 10l1.3-4.2h13.4L20 10a2 2 0 0 1-4 0 2 2 0 0 1-4 0 2 2 0 0 1-4 0 2 2 0 0 1-4 0z"/><path d="M9.5 19v-4.5h5V19"/></symbol>
+    <symbol id="ic-rider" viewBox="0 0 24 24"><circle cx="6" cy="16.5" r="2.6"/><circle cx="17.5" cy="16.5" r="2.6"/><path d="M6 16.5h6l-2-6.5H7.5"/><path d="M12 16.5l3.5-7.5H18"/><path d="M14 9h3.5l1.2 4"/></symbol>
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5"/><path d="M6 10v9.5h12V10"/><path d="M10 19.5V14h4v5.5"/></symbol>
+    <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-10.5A6.5 6.5 0 0 0 5.5 10.5C5.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.5"/></symbol>
+    <symbol id="ic-sync" viewBox="0 0 24 24"><path d="M5 10a7 7 0 0 1 11.5-3.2L19 9"/><path d="M19 14a7 7 0 0 1-11.5 3.2L5 15"/><path d="M19 4.5V9h-4.5"/><path d="M5 19.5V15h4.5"/></symbol>
+    <symbol id="ic-box" viewBox="0 0 24 24"><path d="M12 3.5l8 4.3v8.4L12 20.5l-8-4.3V7.8L12 3.5z"/><path d="M4.3 7.9l7.7 4.2 7.7-4.2"/><path d="M12 12.1v8.4"/></symbol>
+    <symbol id="ic-trend" viewBox="0 0 24 24"><path d="M4 5v14.5h15.5"/><path d="M7.5 15l3.5-3.8 2.6 2.2 4.4-5.4"/><path d="M14.5 8h3.5v3.5"/></symbol>
+    <symbol id="ic-rupee" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9 8.2h6"/><path d="M9 11h6"/><path d="M9 8.2c3.4 0 4.3 5.6 0 5.6h.6l4.4 3.6"/></symbol>
+    <symbol id="ic-repeat" viewBox="0 0 24 24"><path d="M4.5 9.5A6.5 6.5 0 0 1 11 5.5h6"/><path d="M14.5 3l3 2.5-3 2.5"/><path d="M19.5 14.5A6.5 6.5 0 0 1 13 18.5H7"/><path d="M9.5 21l-3-2.5 3-2.5"/></symbol>
+  </defs></svg>
+
+  <div data-glow style="position:fixed;left:-300px;top:-300px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.13) 0%,rgba(255,77,45,0) 65%);pointer-events:none;z-index:1;will-change:transform"></div>
 
   <!-- NAV -->
-  <nav class="nav" data-nav>
-    <div class="nav-inner">
-      <a href="index.html" class="brand"><span class="dot"></span>DROPT</a>
-      <div class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="for-brands.html">For Brands</a>
-        <a href="about.html">About</a>
+  <nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid rgba(255,255,255,0);transition:background .3s,backdrop-filter .3s,border-color .3s">
+    <div class="sx" style="max-width:1240px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:21px;letter-spacing:-0.02em;color:#F5F0EB">
+        <span style="width:9px;height:9px;border-radius:50%;background:#FF4D2D;animation:droptPulse 2.6s ease-in-out infinite"></span>DROPT
+      </a>
+      <div class="navDesktop" style="display:flex;align-items:center;gap:32px;font-size:14.5px;color:rgba(255,255,255,0.55);font-weight:500">
+        <a class="nlink" href="index.html">Home</a>
+        <a class="nlink" href="how-it-works.html">How It Works</a>
+        <a class="nlink" href="pricing.html">Pricing</a>
+        <a class="nlink" href="for-brands.html">For Brands</a>
+        <a class="nlink" href="about.html">About</a>
       </div>
-      <a href="pilot.html" class="btn btn-nav">Start Pilot <span class="arr">&rarr;</span></a>
+      <a class="navDesktop pulseCta cta" href="pilot.html" style="align-items:center;gap:8px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:0">Start Pilot <span style="font-size:16px">→</span></a>
+      <button class="navBurger" data-burger style="align-items:center;justify-content:center;width:42px;height:42px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#F5F0EB;font-size:18px;cursor:pointer;border-radius:0">☰</button>
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div class="mobileMenu" data-menu>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:48px">
+      <span style="display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:21px;color:#F5F0EB"><span style="width:9px;height:9px;border-radius:50%;background:#FF4D2D"></span>DROPT</span>
+      <button data-close style="width:42px;height:42px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#F5F0EB;font-size:20px;cursor:pointer;border-radius:0">✕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="index.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">Home</a>
+      <a href="how-it-works.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">How It Works</a>
+      <a href="pricing.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">Pricing</a>
+      <a href="for-brands.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">For Brands</a>
+      <a href="for-riders.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">For Riders</a>
+      <a href="about.html" style="font-family:'Space Grotesk';font-weight:600;font-size:26px;letter-spacing:-0.02em;color:#F5F0EB;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07)">About</a>
+    </div>
+    <a href="pilot.html" style="margin-top:auto;text-align:center;background:#FF4D2D;color:#0D0D0D;font-family:'Space Grotesk';font-weight:600;font-size:17px;padding:17px;border-radius:0">Start Your Pilot →</a>
+  </div>
+
   <!-- HERO -->
-  <header class="hero">
-    <div class="hero-orb" data-parallax="0.22"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-inner">
-      <div class="hero-eyebrow reveal" data-reveal="0">Hyperlocal Quick-Commerce Infrastructure</div>
-      <h1 class="hero-title reveal" data-reveal="80">Drop it. <span class="accent">Get it.</span><br>In <span class="accent">30 minutes.</span></h1>
-      <p class="hero-sub reveal" data-reveal="160">The white-label fulfillment platform that turns your existing stores into an instant-delivery network — without dark stores, without the marketplace tax.</p>
-      <div class="hero-actions reveal" data-reveal="240">
-        <a href="pilot.html" class="btn btn-primary">Start Your Pilot <span class="arr">&rarr;</span></a>
-        <a href="how-it-works.html" class="btn btn-ghost">See How It Works</a>
+  <header class="sx" style="position:relative;padding:158px 32px 90px;overflow:hidden">
+    <div data-parallax style="position:absolute;top:-220px;right:-180px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.22) 0%,rgba(255,77,45,0.05) 40%,rgba(255,77,45,0) 70%);pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 55% at 50% 20%,#000 30%,transparent 75%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1000px;margin:0 auto;z-index:2;text-align:center">
+      <div data-reveal="0" style="display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:#FF4D2D;border:1px solid rgba(255,77,45,0.3);padding:8px 16px;border-radius:0;margin-bottom:30px">Hyperlocal Quick-Commerce Infrastructure</div>
+      <h1 data-reveal="80" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,7vw,98px);line-height:0.98;letter-spacing:-0.03em;color:#F5F0EB;margin:0 0 26px">Drop it. <span style="color:#FF4D2D">Get it.</span><br>In <span style="color:#FF4D2D">30 minutes.</span></h1>
+      <p data-reveal="160" style="max-width:640px;margin:0 auto 38px;font-size:19px;line-height:1.6;color:rgba(255,255,255,0.6)">The white-label fulfillment platform that turns your existing stores into an instant-delivery network — without dark stores, without the marketplace tax.</p>
+      <div data-reveal="240" style="display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-bottom:64px">
+        <a class="cta" href="pilot.html" style="display:inline-flex;align-items:center;gap:9px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:15.5px;padding:16px 26px;border-radius:0;text-align:left">Launch Hyperlocal Delivery From Your Stores <span style="font-size:18px">→</span></a>
+        <a class="ghost" href="#showcase" style="display:inline-flex;align-items:center;gap:9px;color:#F5F0EB;font-weight:600;font-size:15.5px;padding:16px 26px;border-radius:0;border:1px solid rgba(255,255,255,0.18)">See Live Platform</a>
       </div>
-      <div class="statstrip reveal" data-reveal="320">
-        <div class="stat"><div class="stat-num" data-count="30" data-suf="m">30m</div><div class="stat-label">Promise to door</div></div>
-        <div class="stat"><div class="stat-num" data-count="0">0</div><div class="stat-label">Dark stores</div></div>
-        <div class="stat"><div class="stat-num" data-count="100" data-suf="%">100%</div><div class="stat-label">White-label</div></div>
-        <div class="stat"><div class="stat-num" data-count="14" data-pre="$" data-suf="B">$14B</div><div class="stat-label">Fashion TAM</div></div>
+
+      <!-- ANIMATED DELIVERY JOURNEY -->
+      <div data-reveal="320" style="position:relative;max-width:780px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center;position:relative">
+          <svg viewBox="0 0 780 8" preserveAspectRatio="none" style="position:absolute;top:32px;left:10%;width:80%;height:8px;z-index:0">
+            <line x1="0" y1="4" x2="780" y2="4" stroke="rgba(255,255,255,0.1)" stroke-width="2"></line>
+            <line x1="0" y1="4" x2="780" y2="4" stroke="#FF4D2D" stroke-width="2" stroke-dasharray="6 14" style="animation:dashFlow 1.1s linear infinite"></line>
+          </svg>
+          <div style="position:relative;z-index:1;text-align:center"><div style="width:66px;height:66px;margin:0 auto 12px;border-radius:50%;background:#141414;border:1px solid rgba(255,77,45,0.4);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:#FF4D2D"><use href="#ic-cart"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#F5F0EB">Order</div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:3px">created</div></div>
+          <div style="position:relative;z-index:1;text-align:center"><div style="width:66px;height:66px;margin:0 auto 12px;border-radius:50%;background:#141414;border:1px solid rgba(255,77,45,0.4);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:#FF4D2D"><use href="#ic-store"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#F5F0EB">Store</div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:3px">assigned</div></div>
+          <div style="position:relative;z-index:1;text-align:center"><div style="width:66px;height:66px;margin:0 auto 12px;border-radius:50%;background:#141414;border:1px solid rgba(255,77,45,0.4);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:#FF4D2D"><use href="#ic-rider"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#F5F0EB">Rider</div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:3px">dispatched</div></div>
+          <div style="position:relative;z-index:1;text-align:center"><div style="width:66px;height:66px;margin:0 auto 12px;border-radius:50%;background:#141414;border:1px solid rgba(255,77,45,0.4);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:#FF4D2D"><use href="#ic-home"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#F5F0EB">Customer</div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:3px">delivered</div></div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div data-reveal="360" class="statsRow" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-top:1px solid rgba(255,255,255,0.1);margin-top:54px">
+        <div style="flex:1;min-width:140px;padding:24px 26px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)"><div style="font-family:'Space Grotesk';font-weight:600;font-size:32px;color:#C8E63E;letter-spacing:-0.02em" data-count="60" data-pre="" data-suf="m" data-dec="0">60m</div><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Hyperlocal · same store in zone</div></div>
+        <div style="flex:1;min-width:140px;padding:24px 26px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)"><div style="font-family:'Space Grotesk';font-weight:600;font-size:32px;color:#C8E63E;letter-spacing:-0.02em" data-count="3" data-pre="" data-suf="h" data-dec="0">3h</div><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Express · adjacent zone</div></div>
+        <div style="flex:1;min-width:140px;padding:24px 26px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)"><div style="font-family:'Space Grotesk';font-weight:600;font-size:32px;color:#C8E63E;letter-spacing:-0.02em" data-count="0" data-pre="" data-suf="" data-dec="0">0</div><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">Dark stores</div></div>
+        <div style="flex:1;min-width:140px;padding:24px 26px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)"><div style="font-family:'Space Grotesk';font-weight:600;font-size:32px;color:#C8E63E;letter-spacing:-0.02em" data-count="100" data-pre="" data-suf="%" data-dec="0">100%</div><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px">White-label</div></div>
       </div>
     </div>
   </header>
 
-  <!-- TRUST BAR -->
-  <div class="trustbar">
-    <div class="trustbar-inner">
-      <span class="trustbar-label">Integrates with</span>
-      <span class="trustbar-logo">Shopify</span>
-      <span class="trustbar-logo">Unicommerce</span>
-      <span class="trustbar-logo">Browntape</span>
-      <span class="trustbar-logo">MSG91</span>
-      <span class="trustbar-logo">Gupshup</span>
-    </div>
-  </div>
-
-  <!-- PROBLEM -->
-  <section class="section section-inner">
-    <div class="eyebrow reveal" data-reveal="0">The Problem</div>
-    <h2 class="h2 reveal" data-reveal="60" style="max-width:880px">Quick commerce solved groceries.<br>Fashion is still four hours late.</h2>
-    <p class="lead reveal" data-reveal="120">Five structural breakdowns keep fashion stuck on ecommerce timelines while groceries arrive in ten minutes.</p>
-    <div class="rows">
-      <div class="prow reveal" data-reveal="0"><div class="prow-num">01</div><div class="prow-title">Operations</div><div class="prow-body">Hyperlocal orders treated like standard ecom — 4-6 hour delays baked in.</div></div>
-      <div class="prow reveal" data-reveal="60"><div class="prow-num">02</div><div class="prow-title">Store Coordination</div><div class="prow-body">No dedicated workflow means packing delays and missed SLAs.</div></div>
-      <div class="prow reveal" data-reveal="120"><div class="prow-num">03</div><div class="prow-title">Inventory Visibility</div><div class="prow-body">OMS not built for geo-based stock — you can&rsquo;t promise availability.</div></div>
-      <div class="prow reveal" data-reveal="180"><div class="prow-num">04</div><div class="prow-title">Rider Orchestration</div><div class="prow-body">No hyperlocal dispatch for non-grocery — it simply doesn&rsquo;t scale.</div></div>
-      <div class="prow reveal" data-reveal="240"><div class="prow-num">05</div><div class="prow-title">Marketplace Tax</div><div class="prow-body">Brands rent delivery from Myntra/Ajio — no customer data, high commission.</div></div>
-    </div>
-  </section>
-
-  <!-- CUSTOMER JOURNEY -->
-  <section class="section section-inner">
-    <div class="eyebrow reveal" data-reveal="0">The Customer Journey</div>
-    <h2 class="h2 reveal" data-reveal="60" style="margin-bottom:14px">From cart to a 42-minute promise.</h2>
-    <p class="lead reveal" data-reveal="120" style="max-width:600px;margin-bottom:52px">Most fashion checkouts surface delivery <em style="color:rgba(255,255,255,0.75)">after</em> payment. Dropt moves it to before the buy button — the way Blinkit&rsquo;s &ldquo;12 mins&rdquo; badge lifts grocery conversion.</p>
-    <div class="journey" id="journey">
-      <div class="journey-track"></div>
-      <div class="journey-fill" id="journeyFill"></div>
-      <button class="journey-step is-on" data-step="0"><div class="journey-dot">1</div><div class="journey-title">Visit</div><div class="journey-body">Customer lands on the brand site with the Dropt SDK embedded.</div></button>
-      <button class="journey-step" data-step="1"><div class="journey-dot">2</div><div class="journey-title">Add to cart</div><div class="journey-body">Stock is pre-checked against the nearest store in real time.</div></button>
-      <button class="journey-step" data-step="2"><div class="journey-dot">3</div><div class="journey-title">Enter location</div><div class="journey-body">Pincode, a saved address, or GPS — one field.</div></button>
-      <button class="journey-step" data-step="3"><div class="journey-dot">4</div><div class="journey-title">Eligibility fires</div><div class="journey-body">POST /check-delivery-eta returns in under 300ms.</div></button>
-      <button class="journey-step" data-step="4"><div class="journey-dot">5</div><div class="journey-title">Promise shown</div><div class="journey-body">&#9889; 42-min promise on PDP, cart &amp; checkout — before pay.</div></button>
-    </div>
-    <div class="reveal" data-reveal="0" style="margin-top:48px;display:flex;justify-content:center">
-      <div class="pill"><span style="font-size:18px">&#9889;</span><span>42-min promise shown on PDP, cart &amp; checkout — <span class="accent">before payment</span></span></div>
-    </div>
-  </section>
-
-  <!-- COMPARISON -->
-  <section class="section section--alt section--alt-top">
-    <div class="section-inner">
-      <div class="eyebrow reveal" data-reveal="0">Where Dropt Sits</div>
-      <h2 class="h2 h2--sm reveal" data-reveal="60" style="max-width:900px;margin-bottom:48px">Marketplaces own customers. Dark stores own grocery. Dropt owns the brand.</h2>
-      <div class="table-wrap reveal" data-reveal="120">
-        <table class="compare">
-          <thead><tr>
-            <th class="dim-head">Dimension</th>
-            <th>Marketplaces</th>
-            <th>Grocery Q-Com</th>
-            <th class="dropt-head">DROPT</th>
-          </tr></thead>
-          <tbody>
-            <tr><td class="dim">Customer ownership</td><td>Marketplace</td><td>Platform</td><td class="dropt">Brand</td></tr>
-            <tr><td class="dim">Capex required</td><td>Low / high commission</td><td>High — dark stores</td><td class="dropt">Zero — brand stores</td></tr>
-            <tr><td class="dim">Delivery speed</td><td>1–3 days</td><td>10–30 min (grocery)</td><td class="dropt">30 min – 3 hr (fashion)</td></tr>
-            <tr><td class="dim">White-label</td><td>No</td><td>No</td><td class="dropt">Fully — brand domain</td></tr>
-            <tr><td class="dim">Inventory model</td><td>Marketplace stock</td><td>Dark-store stock</td><td class="dropt">Brand&rsquo;s existing stock</td></tr>
-            <tr><td class="dim">Customer data</td><td>Restricted</td><td>N/A to brand</td><td class="dropt">Full to brand</td></tr>
-            <tr><td class="dim">Category fit</td><td>Multi-category</td><td>Grocery / essentials</td><td class="dropt">Fashion &amp; D2C</td></tr>
-          </tbody>
-        </table>
+  <!-- PRODUCT SHOWCASE -->
+  <section id="showcase" class="sx" style="position:relative;padding:100px 32px;border-top:1px solid rgba(255,255,255,0.06);background:#0B0B0B">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:44px">
+        <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">See Dropt In Action</div>
+        <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0 auto 14px;max-width:18ch">Everything your team needs to run hyperlocal delivery.</h2>
+        <p data-reveal="120" style="max-width:560px;margin:0 auto;font-size:17.5px;line-height:1.6;color:rgba(255,255,255,0.55)">Four surfaces, one platform — running entirely on the stores you already operate.</p>
       </div>
-      <div class="quote reveal" data-reveal="80"><p>&ldquo;Slikk, ZILO and KNOT are building marketplaces that <span style="color:rgba(255,255,255,0.55)">compete</span> with your brand. Dropt builds infrastructure that <span class="accent">powers</span> your brand.&rdquo;</p></div>
+
+      <!-- TABS -->
+      <div data-reveal="160" data-tabs style="display:flex;justify-content:center;margin-bottom:34px">
+        <div style="display:inline-flex;gap:4px;background:#141414;border:1px solid rgba(255,255,255,0.08);padding:5px;overflow-x:auto;max-width:100%">
+          <button class="tabBtn active" data-tab="0">Brand Dashboard</button>
+          <button class="tabBtn" data-tab="1">Admin Command Center</button>
+          <button class="tabBtn" data-tab="2">Customer Tracking</button>
+          <button class="tabBtn" data-tab="3">Rider App</button>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT -->
+      <div class="showcaseGrid" style="display:grid;grid-template-columns:1.45fr 1fr;gap:28px;align-items:stretch">
+        <!-- mock area -->
+        <div style="position:relative;background:#0D0D0D;border:1px solid rgba(255,255,255,0.1);overflow:hidden;min-height:430px;box-shadow:0 30px 80px rgba(0,0,0,0.5)">
+          <!-- BRAND DASHBOARD -->
+          <div class="tabPanel active" data-panel="0">
+            <div style="display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,0.07);background:#141414"><span style="width:11px;height:11px;border-radius:50%;background:#FF4D2D"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="margin-left:12px;font-family:'JetBrains Mono';font-size:12px;color:rgba(255,255,255,0.45)">app.dropt.in/aira</span></div>
+            <div style="display:grid;grid-template-columns:150px 1fr;height:380px">
+              <div style="border-right:1px solid rgba(255,255,255,0.07);padding:18px 12px;display:flex;flex-direction:column;gap:5px;background:#0F0F0F">
+                <div style="font-family:'Space Grotesk';font-weight:700;font-size:15px;color:#F5F0EB;margin-bottom:14px;padding-left:8px">aira.</div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;font-size:12.5px;background:rgba(255,77,45,0.14);color:#FF4D2D"><span style="width:5px;height:5px;border-radius:50%;background:#FF4D2D"></span>Orders</div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;font-size:12.5px;color:rgba(255,255,255,0.5)"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.3)"></span>Inventory</div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;font-size:12.5px;color:rgba(255,255,255,0.5)"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.3)"></span>Stores</div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;font-size:12.5px;color:rgba(255,255,255,0.5)"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.3)"></span>Analytics</div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;font-size:12.5px;color:rgba(255,255,255,0.5)"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.3)"></span>Integrations</div>
+              </div>
+              <div style="padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:14px"><div style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px">Orders today</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#F5F0EB">312</div></div>
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:14px"><div style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px">On-time SLA</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#C8E63E">97.4%</div></div>
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:14px"><div style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px">Avg delivery</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#F5F0EB">44m</div></div>
+                </div>
+                <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:16px 18px;flex:1">
+                  <div style="font-family:'Space Grotesk';font-weight:600;font-size:13px;color:#F5F0EB;margin-bottom:12px">Live orders</div>
+                  <div style="display:grid;grid-template-columns:80px 1fr 60px;gap:8px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.05);font-size:11.5px"><span style="font-family:'JetBrains Mono';color:rgba(255,255,255,0.5)">#A-8841</span><span style="color:rgba(255,255,255,0.7)">Indiranagar</span><span style="font-family:'JetBrains Mono';text-align:right;color:#C8E63E">06:12</span></div>
+                  <div style="display:grid;grid-template-columns:80px 1fr 60px;gap:8px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.05);font-size:11.5px"><span style="font-family:'JetBrains Mono';color:rgba(255,255,255,0.5)">#A-8840</span><span style="color:rgba(255,255,255,0.7)">Koramangala</span><span style="font-family:'JetBrains Mono';text-align:right;color:#FF4D2D">01:48</span></div>
+                  <div style="display:grid;grid-template-columns:80px 1fr 60px;gap:8px;padding:10px 0;border-top:1px solid rgba(255,255,255,0.05);font-size:11.5px"><span style="font-family:'JetBrains Mono';color:rgba(255,255,255,0.5)">#A-8838</span><span style="color:rgba(255,255,255,0.7)">HSR Layout</span><span style="font-family:'JetBrains Mono';text-align:right;color:rgba(255,255,255,0.5)">12:30</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ADMIN -->
+          <div class="tabPanel" data-panel="1">
+            <div style="display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,0.07);background:#141414"><span style="width:11px;height:11px;border-radius:50%;background:#FF4D2D"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="margin-left:12px;font-family:'JetBrains Mono';font-size:12px;color:rgba(255,255,255,0.45)">admin.dropt.in/ops</span></div>
+            <div style="display:grid;grid-template-columns:1fr 170px;height:380px">
+              <div style="padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#F5F0EB">Command Center · Bangalore</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#C8E63E">● LIVE</span></div>
+                <div style="position:relative;flex:1;background:#0D0D0D;border:1px solid rgba(255,255,255,0.07);background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:30px 30px;overflow:hidden">
+                  <span style="position:absolute;left:20%;top:30%;width:11px;height:11px;border-radius:50%;background:#C8E63E;box-shadow:0 0 0 5px #C8E63E26"></span>
+                  <span style="position:absolute;left:55%;top:55%;width:11px;height:11px;border-radius:50%;background:#FF4D2D;box-shadow:0 0 0 5px #FF4D2D26"></span>
+                  <span style="position:absolute;left:75%;top:25%;width:11px;height:11px;border-radius:50%;background:#C8E63E;box-shadow:0 0 0 5px #C8E63E26"></span>
+                  <span style="position:absolute;left:40%;top:72%;width:11px;height:11px;border-radius:50%;background:#FF4D2D;box-shadow:0 0 0 5px #FF4D2D26"></span>
+                  <span style="position:absolute;left:85%;top:60%;width:11px;height:11px;border-radius:50%;background:#C8E63E;box-shadow:0 0 0 5px #C8E63E26"></span>
+                  <span style="position:absolute;left:14px;bottom:12px;font-family:'JetBrains Mono';font-size:10px;color:rgba(255,255,255,0.4)">37 riders active · 3 zones</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:12px 14px"><div style="font-family:'JetBrains Mono';font-size:9px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px">Dispatched</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#F5F0EB">284</div></div>
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:12px 14px"><div style="font-family:'JetBrains Mono';font-size:9px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px">In transit</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#F5F0EB">46</div></div>
+                  <div style="background:#141414;border:1px solid rgba(255,255,255,0.07);padding:12px 14px"><div style="font-family:'JetBrains Mono';font-size:9px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px">SLA breach</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#F5F0EB">2</div></div>
+                </div>
+              </div>
+              <div style="border-left:1px solid rgba(255,255,255,0.07);padding:16px 12px;background:#0F0F0F;display:flex;flex-direction:column;gap:8px">
+                <div style="font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:4px">Riders</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:#141414;border:1px solid rgba(255,255,255,0.07)"><span style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#C8E63E"></span><span style="font-family:'JetBrains Mono';font-size:11px;color:#F5F0EB">R-204</span></span><span style="font-size:10px;color:rgba(255,255,255,0.5)">Indiranagar</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:#141414;border:1px solid rgba(255,255,255,0.07)"><span style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#FF4D2D"></span><span style="font-family:'JetBrains Mono';font-size:11px;color:#F5F0EB">R-118</span></span><span style="font-size:10px;color:rgba(255,255,255,0.5)">Koramangala</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:#141414;border:1px solid rgba(255,255,255,0.07)"><span style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#C8E63E"></span><span style="font-family:'JetBrains Mono';font-size:11px;color:#F5F0EB">R-077</span></span><span style="font-size:10px;color:rgba(255,255,255,0.5)">HSR</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:#141414;border:1px solid rgba(255,255,255,0.07)"><span style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#C8E63E"></span><span style="font-family:'JetBrains Mono';font-size:11px;color:#F5F0EB">R-152</span></span><span style="font-size:10px;color:rgba(255,255,255,0.5)">BTM</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- TRACKING -->
+          <div class="tabPanel" data-panel="2">
+            <div style="display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,0.07);background:#141414"><span style="width:11px;height:11px;border-radius:50%;background:#FF4D2D"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="margin-left:12px;font-family:'JetBrains Mono';font-size:12px;color:rgba(255,255,255,0.45)">aira.com/track</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;height:380px;padding:24px;background:radial-gradient(ellipse at center,#131313,#0D0D0D)">
+              <div style="width:260px;background:#0B0B0B;border:1px solid rgba(255,255,255,0.12);border-radius:30px;padding:12px;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
+                <div style="background:#fff;border-radius:22px;overflow:hidden">
+                  <div style="padding:14px 16px 0;display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;color:#0D0D0D">aira.</span><span style="font-family:'JetBrains Mono';font-size:9px;color:#FF4D2D">● live</span></div>
+                  <div style="margin:12px 16px 0;height:120px;border-radius:12px;background:#f0f0f0;position:relative;overflow:hidden;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:22px 22px"><div style="position:absolute;top:50%;left:12%;width:76%;height:2px;background:repeating-linear-gradient(90deg,#FF4D2D 0 7px,transparent 7px 14px)"></div><div style="position:absolute;top:calc(50% - 7px);left:10%;font-size:15px">🛵</div><div style="position:absolute;top:calc(50% - 8px);right:10%;font-size:14px">🏠</div></div>
+                  <div style="padding:14px 16px 18px">
+                    <div style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:#0D0D0D;margin-bottom:3px">Arriving in 42 min</div>
+                    <div style="font-size:11px;color:#888;margin-bottom:12px">Rider 1.2 km away · OTP 4471</div>
+                    <div style="display:flex;align-items:center;gap:9px;padding:6px 0;font-size:12px;color:#0D0D0D"><span style="width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;background:#C8E63E">✓</span>Order packed</div>
+                    <div style="display:flex;align-items:center;gap:9px;padding:6px 0;font-size:12px;color:#0D0D0D"><span style="width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;background:#C8E63E">✓</span>Rider picked up</div>
+                    <div style="display:flex;align-items:center;gap:9px;padding:6px 0;font-size:12px;color:#bbb"><span style="width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;background:#ddd"></span>On the way</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- RIDER -->
+          <div class="tabPanel" data-panel="3">
+            <div style="display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,0.07);background:#141414"><span style="width:11px;height:11px;border-radius:50%;background:#FF4D2D"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="margin-left:12px;font-family:'JetBrains Mono';font-size:12px;color:rgba(255,255,255,0.45)">Dropt Rider · iOS / Android</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;height:380px;padding:24px;background:radial-gradient(ellipse at center,#131313,#0D0D0D)">
+              <div style="width:260px;background:#0B0B0B;border:1px solid rgba(255,255,255,0.12);border-radius:30px;padding:12px;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
+                <div style="background:#0D0D0D;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)">
+                  <div style="padding:16px 16px 0;display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:14px;color:#F5F0EB">Dropt Rider</span><span style="font-family:'JetBrains Mono';font-size:12px;color:#C8E63E">₹1,485</span></div>
+                  <div style="margin:14px 16px;padding:16px;background:#141414;border:1px solid rgba(255,77,45,0.3)">
+                    <div style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.14em;color:#FF4D2D;margin-bottom:10px">NEW ORDER</div>
+                    <div style="font-size:13px;color:#F5F0EB;margin-bottom:5px">Pickup · Indiranagar store</div>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px">Drop · HSR Layout · 3.4 km</div>
+                    <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#C8E63E">+₹62</span><span style="background:#FF4D2D;color:#0D0D0D;font-family:'Space Grotesk';font-weight:600;font-size:12px;padding:9px 16px">Accept</span></div>
+                  </div>
+                  <div style="padding:0 16px 18px;display:flex;flex-direction:column;gap:8px">
+                    <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#141414;border:1px solid rgba(255,255,255,0.07);font-size:12px;color:rgba(255,255,255,0.55)"><span style="width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:10px;color:#FF4D2D">1</span>Navigate to store</div>
+                    <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#141414;border:1px solid rgba(255,255,255,0.07);font-size:12px;color:rgba(255,255,255,0.55)"><span style="width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:10px;color:#FF4D2D">2</span>Scan QC &amp; pick up</div>
+                    <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#141414;border:1px solid rgba(255,255,255,0.07);font-size:12px;color:rgba(255,255,255,0.55)"><span style="width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:10px;color:#FF4D2D">3</span>Verify OTP + photo POD</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- features (switches with the tab) -->
+        <div style="position:relative">
+          <div class="tabPanel active" data-panel="0" style="height:100%"><div style="display:flex;flex-direction:column;justify-content:center;background:#141414;border:1px solid rgba(255,255,255,0.08);padding:36px 34px;height:100%"><div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Brand Dashboard</div><div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px"><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Orders</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Inventory</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Stores</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Analytics</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Integrations</div></div><div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)"><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">Business value</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;line-height:1.35;color:#F5F0EB">A single source of truth for your brand.</div></div></div></div>
+          <div class="tabPanel" data-panel="1" style="height:100%"><div style="display:flex;flex-direction:column;justify-content:center;background:#141414;border:1px solid rgba(255,255,255,0.08);padding:36px 34px;height:100%"><div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Admin Command Center</div><div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px"><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Riders</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Dispatch</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Live operations</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>SLA monitoring</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Brand management</div></div><div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)"><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">Business value</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;line-height:1.35;color:#F5F0EB">Control every delivery operation, live.</div></div></div></div>
+          <div class="tabPanel" data-panel="2" style="height:100%"><div style="display:flex;flex-direction:column;justify-content:center;background:#141414;border:1px solid rgba(255,255,255,0.08);padding:36px 34px;height:100%"><div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Customer Tracking</div><div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px"><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Live ETA</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>OTP delivery</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Real-time tracking</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>POD confirmation</div></div><div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)"><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">Business value</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;line-height:1.35;color:#F5F0EB">Higher customer confidence on every order.</div></div></div></div>
+          <div class="tabPanel" data-panel="3" style="height:100%"><div style="display:flex;flex-direction:column;justify-content:center;background:#141414;border:1px solid rgba(255,255,255,0.08);padding:36px 34px;height:100%"><div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#FF4D2D;margin-bottom:14px">Rider App</div><div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px"><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Navigation</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>OTP verification</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>POD upload</div><div style="display:flex;gap:12px;align-items:center;font-size:16px;color:rgba(255,255,255,0.78)"><span style="color:#C8E63E;font-size:14px">✓</span>Multi-order deliveries</div></div><div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)"><div style="font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">Business value</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;line-height:1.35;color:#F5F0EB">Faster fulfilment, fewer failed deliveries.</div></div></div></div>
+        </div>
+      </div>
+      <p style="text-align:center;font-family:'JetBrains Mono';font-size:11.5px;color:rgba(255,255,255,0.28);margin:22px 0 0">Interface previews — swap with production screenshots at launch.</p>
     </div>
   </section>
 
-  <!-- MODULES -->
-  <section class="section section-inner">
-    <div class="eyebrow reveal" data-reveal="0">Platform Modules</div>
-    <h2 class="h2 reveal" data-reveal="60" style="margin-bottom:48px">Fourteen production modules. One stack.</h2>
-    <div class="grid grid--modules">
-      <div class="card card--lift reveal" data-reveal="0"><div class="mono-code">M-01</div><div class="card-name">Eligibility Engine</div></div>
-      <div class="card card--lift reveal" data-reveal="60"><div class="mono-code">M-02</div><div class="card-name">Inventory Orchestration</div></div>
-      <div class="card card--lift reveal" data-reveal="120"><div class="mono-code">M-03</div><div class="card-name">OMS / WMS Layer</div></div>
-      <div class="card card--lift reveal" data-reveal="180"><div class="mono-code">M-04</div><div class="card-name">Store Staff App</div></div>
-      <div class="card card--lift reveal" data-reveal="0"><div class="mono-code">M-05</div><div class="card-name">Rider Dispatch</div></div>
-      <div class="card card--lift reveal" data-reveal="60"><div class="mono-code">M-06</div><div class="card-name">Tracking Engine</div></div>
-      <div class="card card--lift reveal" data-reveal="120"><div class="mono-code">M-07</div><div class="card-name">OTP &amp; QC Verification</div></div>
-      <div class="card card--lift reveal" data-reveal="180"><div class="mono-code">M-08</div><div class="card-name">Brand Dashboard</div></div>
-      <div class="card card--lift reveal" data-reveal="0"><div class="mono-code">M-09</div><div class="card-name">Rider App</div></div>
-      <div class="card card--lift reveal" data-reveal="60"><div class="mono-code">M-10</div><div class="card-name">Communication Engine</div></div>
-      <div class="card card--lift reveal" data-reveal="120"><div class="mono-code">M-11</div><div class="card-name">Wallet &amp; Settlement</div></div>
-      <div class="card card--lift reveal" data-reveal="180"><div class="mono-code">M-12</div><div class="card-name">Returns &amp; Reverse Logistics</div></div>
-      <div class="card card--lift reveal" data-reveal="0"><div class="mono-code">M-13</div><div class="card-name">Fraud Prevention</div></div>
-      <div class="card card--lift reveal" data-reveal="60"><div class="mono-code">M-14</div><div class="card-name">Support &amp; Escalation</div></div>
+  <!-- ANIMATED DELIVERY FLOW -->
+  <section class="sx" style="position:relative;padding:100px 32px;max-width:1240px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:54px">
+      <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">From Store To Customer In Minutes</div>
+      <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0">One order. Six orchestrated steps.</h2>
+    </div>
+    <div data-flow class="flowSteps" style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative">
+      <div class="flowCard lit"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-cart"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 01</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Customer places order</div></div>
+      <div class="flowCard"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-pin"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 02</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Dropt finds nearest store</div></div>
+      <div class="flowCard"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-sync"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 03</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Shopify + Unicommerce sync</div></div>
+      <div class="flowCard"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-box"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 04</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Store prepares order</div></div>
+      <div class="flowCard"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-rider"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 05</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Rider picks up order</div></div>
+      <div class="flowCard"><div class="flowBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-home"></use></svg></div><div style="font-family:'JetBrains Mono';font-size:10.5px;color:#FF4D2D;margin-bottom:8px">STEP 06</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:15.5px;line-height:1.3;color:#F5F0EB">Customer receives order</div></div>
     </div>
   </section>
 
-  <!-- WHO WE SERVE -->
-  <section class="section section--alt section--alt-top">
-    <div class="section-inner">
-      <div class="eyebrow reveal" data-reveal="0">Who We Serve</div>
-      <h2 class="h2 reveal" data-reveal="60" style="margin-bottom:14px">We sell to brands that already have the stores.</h2>
-      <p class="lead reveal" data-reveal="120" style="max-width:620px;margin-bottom:52px">Existing store density in metro India is the asset — Dropt converts it into a hyperlocal network without a single rupee of new capex.</p>
-      <div class="grid grid--auto-260">
-        <div class="seg-card reveal" data-reveal="0"><div class="seg-name">Fashion D2C</div><div class="seg-meta">₹50–500 Cr · 5–20 stores</div><div class="seg-note">Want speed without surrendering to a marketplace.</div></div>
-        <div class="seg-card reveal" data-reveal="60"><div class="seg-name">Retail Chains</div><div class="seg-meta">100–500 stores · Unicommerce</div><div class="seg-note">Inventory already perfectly placed across the metro.</div></div>
-        <div class="seg-card reveal" data-reveal="120"><div class="seg-name">Premium Fashion</div><div class="seg-meta">High AOV · CX-obsessed</div><div class="seg-note">OTP + branded white-label tracking, end to end.</div></div>
-        <div class="seg-card reveal" data-reveal="180"><div class="seg-name">Footwear &amp; Accessories</div><div class="seg-meta">High repeat · inventory-rich</div><div class="seg-note">Speed &rarr; conversion &rarr; repeat purchase.</div></div>
+  <!-- ROI IMPACT -->
+  <section class="sx" style="position:relative;padding:100px 32px;background:#0B0B0B;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:48px">
+        <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">The Impact</div>
+        <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0">What faster delivery means for brands.</h2>
+      </div>
+      <div class="grid4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <div data-reveal="0" class="lift" style="background:#141414;border:1px solid rgba(255,255,255,0.08);padding:32px 28px"><div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,77,45,0.1);border:1px solid rgba(255,77,45,0.28);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-trend"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:8px" data-count="18" data-pre="+" data-suf="%" data-dec="0">+18%</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB;margin-bottom:7px">Higher conversion</div><div style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.5)">A speed badge before checkout lifts purchase intent.</div></div>
+        <div data-reveal="60" class="lift" style="background:#141414;border:1px solid rgba(255,255,255,0.08);padding:32px 28px"><div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,77,45,0.1);border:1px solid rgba(255,77,45,0.28);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-rupee"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:8px" data-count="40" data-pre="−" data-suf="%" data-dec="0">−40%</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB;margin-bottom:7px">Lower delivery cost</div><div style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.5)">Short 3–5 km drops beat cross-city logistics.</div></div>
+        <div data-reveal="120" class="lift" style="background:#141414;border:1px solid rgba(255,255,255,0.08);padding:32px 28px"><div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,77,45,0.1);border:1px solid rgba(255,77,45,0.28);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-store"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:8px" data-count="35" data-pre="+" data-suf="%" data-dec="0">+35%</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB;margin-bottom:7px">Store utilisation</div><div style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.5)">Idle store inventory becomes a fulfilment node.</div></div>
+        <div data-reveal="180" class="lift" style="background:#141414;border:1px solid rgba(255,255,255,0.08);padding:32px 28px"><div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,77,45,0.1);border:1px solid rgba(255,77,45,0.28);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:#FF4D2D"><use href="#ic-repeat"></use></svg></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:40px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:8px" data-count="27" data-pre="+" data-suf="%" data-dec="0">+27%</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB;margin-bottom:7px">Repeat orders</div><div style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.5)">Owning the experience compounds retention.</div></div>
+      </div>
+      <p style="text-align:center;font-family:'JetBrains Mono';font-size:11.5px;color:rgba(255,255,255,0.28);margin:22px 0 0">Illustrative ranges from comparable quick-commerce benchmarks.</p>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE ADVANTAGE -->
+  <section class="sx" style="position:relative;padding:100px 32px;max-width:1240px;margin:0 auto">
+    <div style="margin-bottom:44px">
+      <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">Why Dropt</div>
+      <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0;max-width:16ch">Built for brands. Not marketplaces.</h2>
+    </div>
+    <div data-reveal="120" style="overflow-x:auto;border:1px solid rgba(255,255,255,0.08);background:#101010">
+      <table style="width:100%;border-collapse:collapse;font-size:15px;min-width:680px">
+        <thead><tr>
+          <th style="text-align:left;padding:20px 24px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.08)">Capability</th>
+          <th style="text-align:center;padding:20px 18px;font-family:'Space Grotesk';font-weight:600;color:rgba(255,255,255,0.55);border-bottom:1px solid rgba(255,255,255,0.08)">Marketplace</th>
+          <th style="text-align:center;padding:20px 18px;font-family:'Space Grotesk';font-weight:600;color:rgba(255,255,255,0.55);border-bottom:1px solid rgba(255,255,255,0.08)">Quick-Com Apps</th>
+          <th style="text-align:center;padding:20px 18px;font-family:'Space Grotesk';font-weight:700;color:#FF4D2D;border-bottom:1px solid rgba(255,77,45,0.4);background:rgba(255,77,45,0.05)">Dropt</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">Customer ownership</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">Sells on your brand website</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">Uses your existing stores</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">Shopify compatible</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.4);font-size:17px">~</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">Unicommerce compatible</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+          <tr><td style="padding:17px 24px;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05)">White-label experience</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,77,45,0.6);font-size:17px">✕</td><td style="padding:17px 18px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:#C8E63E;font-size:17px;font-weight:700;background:rgba(255,77,45,0.04)">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- INTEGRATIONS MARQUEE -->
+  <section class="sx" style="position:relative;padding:90px 32px;background:#0B0B0B;border-top:1px solid rgba(255,255,255,0.06);overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto;text-align:center">
+      <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">Integrations</div>
+      <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4vw,48px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0 0 16px">Works with your existing stack.</h2>
+      <p data-reveal="120" style="font-size:16.5px;color:rgba(255,255,255,0.55);margin:0 0 44px">No store migration. No new OMS. No operational disruption.</p>
+    </div>
+    <div class="marqueeWrap" data-reveal="160" style="position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div class="marqueeTrack" style="display:flex;gap:16px;width:max-content">
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Shopify</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Unicommerce</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Browntape</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Shiprocket</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">MSG91</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Gupshup</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Shopify</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Unicommerce</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Browntape</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Shiprocket</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">MSG91</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-width:200px;height:84px;background:#141414;border:1px solid rgba(255,255,255,0.08);font-family:'Space Grotesk';font-weight:600;font-size:21px;color:rgba(255,255,255,0.55)">Gupshup</div>
       </div>
     </div>
   </section>
 
-  <!-- ADVANTAGES -->
-  <section class="section section-inner">
-    <div class="eyebrow reveal" data-reveal="0">Structural Advantages</div>
-    <h2 class="h2 reveal" data-reveal="60" style="margin-bottom:48px">Why Dropt wins.</h2>
-    <div class="grid grid--auto-330">
-      <div class="adv-card reveal" data-reveal="0"><div class="adv-num">01</div><div><div class="adv-title">Built for fashion, not groceries</div><div class="adv-body">Larger packages, OTP-secured drops, returns-first design.</div></div></div>
-      <div class="adv-card reveal" data-reveal="60"><div class="adv-num">02</div><div><div class="adv-title">White-label first</div><div class="adv-body">The brand keeps the customer relationship, data and experience.</div></div></div>
-      <div class="adv-card reveal" data-reveal="120"><div class="adv-num">03</div><div><div class="adv-title">Zero brand capex</div><div class="adv-body">Plugs into existing stores and OMS — no dark stores to build.</div></div></div>
-      <div class="adv-card reveal" data-reveal="180"><div class="adv-num">04</div><div><div class="adv-title">Full-stack orchestration</div><div class="adv-body">Inventory, dispatch, tracking and returns under one contract.</div></div></div>
-      <div class="adv-card reveal" data-reveal="240"><div class="adv-num">05</div><div><div class="adv-title">India-first by design</div><div class="adv-body">COD, DPDP compliance and GST e-invoicing baked in.</div></div></div>
-      <div class="adv-card reveal" data-reveal="300"><div class="adv-num">06</div><div><div class="adv-title">Proprietary dispatch</div><div class="adv-body">ETA scoring tuned for fashion drops, not grocery sprints.</div></div></div>
+  <!-- ENTERPRISE TRUST -->
+  <section class="sx" style="position:relative;padding:100px 32px;max-width:1240px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">Enterprise Ready</div>
+      <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0">Infrastructure-grade from day one.</h2>
+    </div>
+    <div class="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div data-reveal="0" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Role-based access</span></div>
+      <div data-reveal="70" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Tenant isolation</span></div>
+      <div data-reveal="140" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Audit logs</span></div>
+      <div data-reveal="0" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">OTP verification</span></div>
+      <div data-reveal="70" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">POD verification</span></div>
+      <div data-reveal="140" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Store inventory sync</span></div>
+      <div data-reveal="0" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Multi-store fulfilment</span></div>
+      <div data-reveal="70" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Shopify integration</span></div>
+      <div data-reveal="140" class="rowh" style="display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.07);padding:22px 24px"><span style="color:#C8E63E;font-size:16px;flex-shrink:0">◆</span><span style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Unicommerce integration</span></div>
     </div>
   </section>
 
-  <!-- PIPELINE -->
-  <section class="section section--alt section--alt-top">
-    <div class="section-inner">
-      <div class="eyebrow reveal" data-reveal="0">Where We Are</div>
-      <h2 class="h2 reveal" data-reveal="60" style="margin-bottom:48px">Pipeline today. Pilot in 60 days.</h2>
-      <div class="grid grid--auto-250">
-        <div class="pipe-card reveal" data-reveal="0"><div class="pipe-num" data-count="4" data-suf="+">4+</div><div class="pipe-title">Brands in pipeline</div><div class="pipe-note">High-growth fashion brands, ₹100–500 Cr revenue.</div></div>
-        <div class="pipe-card reveal" data-reveal="60"><div class="pipe-num" data-count="3">3</div><div class="pipe-title">Onboarding zones</div><div class="pipe-note">Bangalore divided into three rider zones.</div></div>
-        <div class="pipe-card reveal" data-reveal="120"><div class="pipe-num" data-count="4">4</div><div class="pipe-title">Core technologies</div><div class="pipe-note">NestJS, React Native, Redis, PostgreSQL.</div></div>
-        <div class="pipe-card reveal" data-reveal="180"><div class="pipe-num" data-count="60" data-suf="d">60d</div><div class="pipe-title">To first delivery</div><div class="pipe-note">From funding to live pilot in 60 days.</div></div>
+  <!-- PILOT TIMELINE -->
+  <section class="sx" style="position:relative;padding:100px 32px;background:#0B0B0B;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:54px">
+        <div data-reveal="0" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FF4D2D;margin-bottom:18px">Pilot Program</div>
+        <h2 data-reveal="60" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:#F5F0EB;margin:0">Launch a pilot in 4 days.</h2>
+      </div>
+      <div class="grid4" data-reveal="120" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative">
+        <div style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-top:3px solid #FF4D2D;padding:28px 24px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:32px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:10px">Day 1</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Connect Shopify &amp; Unicommerce</div></div>
+        <div style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-top:3px solid #FF4D2D;padding:28px 24px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:32px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:10px">Day 2</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Sync your stores &amp; inventory</div></div>
+        <div style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-top:3px solid #FF4D2D;padding:28px 24px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:32px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:10px">Day 3</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Configure delivery zones</div></div>
+        <div style="background:#141414;border:1px solid rgba(255,255,255,0.08);border-top:3px solid #FF4D2D;padding:28px 24px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:32px;color:#C8E63E;letter-spacing:-0.02em;margin-bottom:10px">Day 4</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#F5F0EB">Go live</div></div>
+      </div>
+      <div data-reveal="180" style="text-align:center;margin-top:44px">
+        <a href="pilot.html" class="pulseCta cta" style="display:inline-flex;align-items:center;gap:9px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:16px;padding:16px 30px;border-radius:0">Book Pilot Program <span style="font-size:18px">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="pilot" class="cta">
-    <div class="cta-orb"></div>
-    <div class="cta-inner">
-      <h2 class="cta-title reveal" data-reveal="0">Every brand that wants to deliver instantly — without a marketplace, without a dark store — runs on Dropt.</h2>
-      <div class="cta-actions reveal" data-reveal="80">
-        <a href="pilot.html" class="btn btn-primary">Start Your Pilot <span class="arr">&rarr;</span></a>
-        <a href="#" class="btn btn-ghost">Talk to Founders &rarr;</a>
+  <!-- FINAL CTA -->
+  <section class="sx" style="position:relative;padding:130px 32px;overflow:hidden">
+    <div style="position:absolute;bottom:-260px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,45,0.18) 0%,rgba(255,77,45,0) 65%);pointer-events:none"></div>
+    <div style="position:relative;max-width:880px;margin:0 auto;text-align:center;z-index:2">
+      <h2 data-reveal="0" style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(32px,5vw,60px);line-height:1.06;letter-spacing:-0.03em;color:#F5F0EB;margin:0 0 28px">Deliver instantly — without a marketplace, without a dark store.</h2>
+      <div data-reveal="80" style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:22px">
+        <a class="cta" href="pilot.html" style="display:inline-flex;align-items:center;gap:9px;background:#FF4D2D;color:#0D0D0D;font-weight:600;font-size:16px;padding:16px 28px;border-radius:0">Start Your Pilot <span style="font-size:18px">→</span></a>
+        <a class="ghost" href="mailto:invest@dropt.in" style="display:inline-flex;align-items:center;gap:9px;color:#F5F0EB;font-weight:600;font-size:16px;padding:16px 28px;border-radius:0;border:1px solid rgba(255,255,255,0.18)">Talk to Founders →</a>
       </div>
-      <div class="cta-mail reveal" data-reveal="120">pilot@dropt.in</div>
+      <div data-reveal="120" style="font-family:'JetBrains Mono';font-size:14px;color:rgba(255,255,255,0.45)">pilot@dropt.in</div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" data-footer></footer>
+  <footer class="sx" style="border-top:1px solid rgba(255,255,255,0.08);background:#0B0B0B;padding:64px 32px 40px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div class="grid5" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:54px">
+        <div>
+          <a href="index.html" style="display:flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:700;font-size:20px;color:#F5F0EB;margin-bottom:16px"><span style="width:8px;height:8px;border-radius:50%;background:#FF4D2D"></span>DROPT</a>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,0.4);max-width:230px;margin:0">Hyperlocal quick-commerce infrastructure for D2C, retail &amp; lifestyle brands. Bangalore, India.</p>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Product</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="how-it-works.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">How It Works</a>
+            <a class="nlink" href="pricing.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Pricing</a>
+            <a class="nlink" href="for-brands.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">For Brands</a>
+            <a class="nlink" href="for-riders.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">For Riders</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="about.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">About</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Careers</a>
+            <a class="nlink" href="pilot.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Contact</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Press Kit</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Resources</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="blog.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Blog</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Documentation</a>
+            <a class="nlink" href="how-it-works.html" style="font-size:14.5px;color:rgba(255,255,255,0.55)">API Reference</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Status</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px">Legal</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Privacy Policy</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">Terms of Service</a>
+            <a class="nlink" href="#" style="font-size:14.5px;color:rgba(255,255,255,0.55)">DPDP Compliance</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-family:'JetBrains Mono';font-size:13px;color:rgba(255,255,255,0.4)">pilot@dropt.in · invest@dropt.in · dropt.in</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.3)">© 2025 Dropt Technologies Pvt. Ltd. · Bangalore, India</div>
+      </div>
+    </div>
+  </footer>
 
 </div>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/footer.js"></script>
-<script>
-/* Customer journey — auto-advances, click to jump */
-(function () {
-  var steps = [].slice.call(document.querySelectorAll('#journey .journey-step'));
-  var fill = document.getElementById('journeyFill');
-  var current = 0, timer = null;
-  function render() {
-    steps.forEach(function (s, i) { s.classList.toggle('is-on', i <= current); });
-    if (fill) fill.style.width = (current / 4) * 84 + '%';
-  }
-  function play() {
-    if (Dropt.reduceMotion) return;
-    timer = setInterval(function () { current = (current + 1) % 5; render(); }, 2200);
-  }
-  steps.forEach(function (s, i) {
-    s.addEventListener('click', function () {
-      current = i; render();
-      if (timer) { clearInterval(timer); play(); }
-    });
-  });
-  render(); play();
-})();
-</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
