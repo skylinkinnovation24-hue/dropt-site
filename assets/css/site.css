@@ -196,6 +196,16 @@ input[type=range].roiSlider::-moz-range-thumb{width:18px;height:18px;border:0;bo
 .ckpop{display:inline-block;transform:scale(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
 [data-reveal].shown .ckpop,tr.shown .ckpop{transform:scale(1)}
 
+/* right-aligned hero (resets to left on mobile for readability) */
+.heroRight{margin-right:0 !important;text-align:right}
+.heroRight > div > p{margin-left:auto !important}
+.heroRight .ctaRow,.heroRight .statRow{justify-content:flex-end}
+@media (max-width:600px){
+  .heroRight{text-align:left;margin-left:auto !important;margin-right:auto !important}
+  .heroRight > div > p{margin-left:0 !important}
+  .heroRight .statRow{justify-content:flex-start}
+}
+
 /* swap long CTA label for a short one on small screens */
 .lblShort{display:none}
 @media (max-width:600px){
