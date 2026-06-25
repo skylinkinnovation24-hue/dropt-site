@@ -81,3 +81,115 @@ img{max-width:100%;display:block}
      rather than clipping. Layout grids already collapse via their own queries. */
   .tableWrap, .scrollx{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 }
+
+/* ============================================================
+   HOMEPAGE V2 — premium motion + components (Stripe/Linear feel)
+   ============================================================ */
+/* refined reveal: 30px / 600ms, single-run */
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+[data-reveal].shown{opacity:1;transform:none}
+/* card-rise variant (scale 0.96 -> 1) */
+.rise[data-reveal]{transform:translateY(30px) scale(.96)}
+.rise[data-reveal].shown{transform:none}
+
+/* hover lift with glow + image zoom */
+.liftCard{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s}
+.liftCard:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 0 1px rgba(255,77,45,.18);border-color:rgba(255,77,45,.45) !important}
+.liftCard:hover .zoom{transform:scale(1.03)}
+.zoom{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+
+/* icon micro-rotate + CTA arrow slide */
+.ico{transition:transform .3s}
+.ico:hover{transform:rotate(3deg)}
+.cta .arr,.cta span:last-child{transition:transform .25s}
+.cta:hover .arr,.cta:hover span:last-child{transform:translateX(4px)}
+
+/* section divider gradient */
+.divider{height:1px;border:0;background:linear-gradient(90deg,transparent,rgba(255,77,45,.35),transparent);background-size:200% 100%;animation:dividerSlide 6s linear infinite}
+@keyframes dividerSlide{to{background-position:200% 0}}
+
+/* scroll-spy active nav link */
+.navDesktop a.spyOn{color:#F5F0EB !important}
+.navDesktop a.spyOn::after{content:'';display:block;height:2px;background:#FF4D2D;margin-top:5px;border-radius:2px;animation:spyIn .3s ease}
+@keyframes spyIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* glass reflection (follows pointer) */
+.glass{position:relative;overflow:hidden}
+.glass::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.10),transparent 45%);opacity:0;transition:opacity .35s;z-index:3}
+.glass.glassOn::after{opacity:1}
+
+/* ---- hero: animated logistics network ---- */
+.heroNet{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.55}
+.heroNet .nDot{fill:#FF4D2D}
+.heroNet .nPulse{animation:netDash 3.2s linear infinite}
+@keyframes netDash{to{stroke-dashoffset:-60}}
+.travelDot{offset-rotate:0deg;animation:travel 4s linear infinite}
+@keyframes travel{0%{offset-distance:0%}100%{offset-distance:100%}}
+
+/* ---- hero: rotating dashboard stack ---- */
+.rotStack{position:relative;min-height:430px}
+.rotCard{position:absolute;inset:0;opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.rotCard.active{opacity:1;transform:none;pointer-events:auto;z-index:2}
+.rotDots{display:flex;gap:7px;justify-content:center;margin-top:16px}
+.rotDots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:background .3s,width .3s}
+.rotDots span.on{background:#FF4D2D;width:20px;border-radius:4px}
+
+/* ---- showcase tab cross-dissolve + screenshot zoom + bullet stagger ---- */
+.tabPanel{transition:opacity .45s ease,transform .45s cubic-bezier(.16,1,.3,1)}
+.tabPanel:not(.active){opacity:0;transform:translateY(8px) scale(.99);position:absolute;inset:0;pointer-events:none}
+.tabPanel.active{opacity:1;transform:none;position:relative;animation:shotZoom .6s cubic-bezier(.16,1,.3,1)}
+@keyframes shotZoom{from{transform:scale(1.02)}to{transform:scale(1)}}
+.tabPanel.active .feat{opacity:0;transform:translateX(8px);animation:featIn .5s forwards}
+.tabPanel.active .feat:nth-child(1){animation-delay:.05s}.tabPanel.active .feat:nth-child(2){animation-delay:.12s}
+.tabPanel.active .feat:nth-child(3){animation-delay:.19s}.tabPanel.active .feat:nth-child(4){animation-delay:.26s}
+.tabPanel.active .feat:nth-child(5){animation-delay:.33s}
+@keyframes featIn{to{opacity:1;transform:none}}
+.shotWrap{position:relative}
+
+/* ---- scroll-driven journey ---- */
+.jWrap{position:relative;padding:30px 0 8px}
+.jTrack{position:relative;display:flex;justify-content:space-between;gap:8px}
+.jLine{position:absolute;top:33px;left:3%;right:3%;height:2px;background:rgba(255,255,255,.1);z-index:0}
+.jLineFill{position:absolute;left:0;top:0;height:100%;width:0;background:#FF4D2D;transition:width .25s linear;box-shadow:0 0 12px rgba(255,77,45,.6)}
+.jPkg{position:absolute;top:20px;left:0;transform:translateX(-50%);z-index:4;transition:left .25s linear;font-size:20px;filter:drop-shadow(0 0 8px rgba(255,77,45,.7))}
+.jNode{position:relative;z-index:1;flex:1;min-width:0;text-align:center}
+.jNode .jDotC{width:30px;height:30px;border-radius:50%;margin:0 auto 10px;background:#141414;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:all .4s}
+.jNode.lit .jDotC{background:rgba(255,77,45,.16);border-color:#FF4D2D;box-shadow:0 0 0 4px rgba(255,77,45,.08)}
+.jNode .jLabel{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.04em;color:rgba(255,255,255,.42);transition:color .4s;line-height:1.3}
+.jNode.lit .jLabel{color:#F5F0EB}
+@media (max-width:760px){
+  .jTrack{flex-direction:column;gap:0;align-items:flex-start;padding-left:8px}
+  .jLine{left:18px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .jLineFill{width:2px !important;height:0;transition:height .25s linear}
+  .jPkg{display:none}
+  .jNode{display:flex;align-items:center;gap:14px;text-align:left;padding:10px 0}
+  .jNode .jDotC{margin:0}
+  .jNode .jLabel{font-size:13px}
+}
+
+/* ---- ROI calculator ---- */
+.roiGrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:820px){.roiGrid{grid-template-columns:1fr}}
+.roiCard{background:#141414;border:1px solid rgba(255,255,255,.08);padding:30px 28px}
+.roiRow{margin-bottom:22px}
+.roiRow label{display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px;font-family:'JetBrains Mono';letter-spacing:.03em}
+.roiRow label b{color:#C8E63E;font-weight:600}
+input[type=range].roiSlider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:rgba(255,255,255,.12);outline:none}
+input[type=range].roiSlider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#FF4D2D;cursor:pointer;box-shadow:0 0 0 4px rgba(255,77,45,.18)}
+input[type=range].roiSlider::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:#FF4D2D;cursor:pointer}
+.roiOutCard{display:flex;flex-direction:column;justify-content:center;gap:16px;background:#0B0B0B;border:1px solid rgba(255,77,45,.22);padding:30px 28px}
+.roiOut{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.roiOut:last-child{border-bottom:0;padding-bottom:0}
+.roiOut .k{font-size:13.5px;color:rgba(255,255,255,.6)}
+.roiOut .v{font-family:'Space Grotesk';font-weight:700;font-size:26px;color:#C8E63E;letter-spacing:-.02em}
+
+/* ---- pricing ---- */
+.priceGrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:880px){.priceGrid3{grid-template-columns:1fr}}
+.priceCard{position:relative;background:#141414;border:1px solid rgba(255,255,255,.08);padding:32px 28px;display:flex;flex-direction:column}
+.priceCard.feat{border-color:rgba(255,77,45,.5);box-shadow:0 0 0 1px rgba(255,77,45,.25),0 24px 60px rgba(0,0,0,.4)}
+.priceTag{position:absolute;top:-11px;left:28px;background:#FF4D2D;color:#0D0D0D;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px}
+
+/* checkmark pop on reveal */
+.ckpop{display:inline-block;transform:scale(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+[data-reveal].shown .ckpop,tr.shown .ckpop{transform:scale(1)}
