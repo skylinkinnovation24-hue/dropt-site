@@ -1,3 +1,18 @@
+/* Google Analytics 4 (gtag.js) — loaded on every page via this shared script.
+   Tracks page views, sessions, users and real-time visitors. */
+(function () {
+  var GA_ID = 'G-TFMLVL9W70';
+  if (!GA_ID || GA_ID.indexOf('G-') !== 0) return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  (document.head || document.documentElement).appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_ID);
+})();
+
 /* Dropt site interactivity (converted from the Claude Design dc-runtime to vanilla JS).
    Everything is feature-detected so the same file works on every page. */
 (function () {
