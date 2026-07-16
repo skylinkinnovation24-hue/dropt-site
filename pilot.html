@@ -106,12 +106,37 @@
             <span style="font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.7)">You keep the customer, the data and the experience.</span>
           </div>
         </div>
-        <div style="margin-top:38px;font-family:'JetBrains Mono';font-size:13px;color:rgba(255,255,255,0.4)">Or email us directly — pilot@dropt.in</div>
+        <!-- dropt.in is not our domain and accepts no mail (null MX) — anyone who
+             emailed that address got a bounce, or nothing. Use the real inbox. -->
+        <div style="margin-top:38px;font-family:'JetBrains Mono';font-size:13px;color:rgba(255,255,255,0.4)">Or email us directly — <a href="mailto:dropt.co.in@gmail.com" style="color:rgba(255,255,255,0.6)">dropt.co.in@gmail.com</a></div>
       </div>
 
       <!-- FORM -->
       <div data-reveal="80" style="background:#0F0F0F;border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px 42px;box-shadow:0 30px 80px rgba(0,0,0,0.4)">
-        <form class="pilotForm" action="mailto:pilot@dropt.in" method="post" enctype="text/plain">
+        <!-- Shown after FormSubmit redirects back with ?sent=1, so an applicant
+             gets real confirmation instead of a silently reloaded form. -->
+        <div id="pilotSent" style="display:none;text-align:center;padding:18px 0 6px">
+          <div style="font-size:34px;line-height:1;margin-bottom:14px">✓</div>
+          <div style="font-family:'Space Grotesk';font-size:22px;font-weight:600;color:#F5F0EB;margin-bottom:10px">Application received</div>
+          <div style="font-size:15px;line-height:1.55;color:rgba(255,255,255,0.6)">Thanks — we've got your details and will reply within 24 hours.</div>
+        </div>
+        <!--
+          Submissions are delivered by FormSubmit to dropt.co.in@gmail.com.
+
+          This was previously action="mailto:pilot@dropt.in", which captured NO
+          leads: a mailto form only tries to open the visitor's own mail client
+          (ignored outright by Chrome and most mobile browsers), and dropt.in is
+          not our domain — it publishes a null MX (RFC 7505), so it accepts no
+          mail at all. Every application submitted through it was silently lost.
+        -->
+        <form class="pilotForm" action="https://formsubmit.co/dropt.co.in@gmail.com" method="POST">
+          <!-- FormSubmit config; underscore-prefixed fields are stripped from the email -->
+          <input type="hidden" name="_subject" value="New Dropt pilot application">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://dropt.co.in/pilot.html?sent=1">
+          <!-- Honeypot: bots fill hidden inputs, humans can't see it. Stands in for the captcha. -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px">
             <div>
               <label class="lbl">Brand name <span style="color:#FF4D2D">*</span></label>
@@ -182,14 +207,27 @@
               <input type="email" name="email" required placeholder="you@brand.com">
             </div>
             <div>
-              <label class="lbl">Phone</label>
-              <input name="phone" placeholder="+91">
+              <label class="lbl">Mobile <span style="color:#FF4D2D">*</span></label>
+              <input type="tel" name="phone" required inputmode="tel"
+                     pattern="^(\+?91[\-\s]?)?[6-9]\d{9}$"
+                     title="Enter a 10-digit Indian mobile number (optionally prefixed with +91)"
+                     placeholder="+91 98765 43210">
             </div>
           </div>
 
           <button type="submit" class="cta" style="width:100%;background:#FF4D2D;color:#0D0D0D;font-family:'Space Grotesk';font-weight:600;font-size:16px;padding:16px;border:none;border-radius:0;cursor:pointer">Submit application →</button>
           <div style="text-align:center;font-size:13px;color:rgba(255,255,255,0.35);margin-top:14px">We reply within 24 hours. No spam, ever.</div>
         </form>
+        <script>
+          // On return from FormSubmit (?sent=1), swap the form for the confirmation.
+          if (new URLSearchParams(location.search).get('sent') === '1') {
+            var f = document.querySelector('.pilotForm');
+            var ok = document.getElementById('pilotSent');
+            if (f) f.style.display = 'none';
+            if (ok) ok.style.display = 'block';
+            if (ok && ok.scrollIntoView) ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        </script>
       </div>
     </div>
   </section>
