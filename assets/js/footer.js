@@ -45,7 +45,7 @@
         '</div>' + colHtml +
       '</div>' +
       '<div class="footer-bottom">' +
-        '<div class="legal-1">dropt.co.in@gmail.com · dropt.co.in</div>' +
+        '<div class="legal-1">partners@dropt.co.in · dropt.co.in</div>' +
         '<div class="legal-2">© 2025 Dropt Technologies Pvt. Ltd. · Bangalore, India</div>' +
       '</div>' +
     '</div>';
